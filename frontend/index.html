@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교환독서 – 홈</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Grandiflora+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <a class="logo" href="index.html">교환독서</a>
+    <nav aria-label="주요">
+      <ul class="gnb">
+        <li><a aria-current="page" href="index.html">홈</a></li>
+        <li><a href="pages/schedule.html">일정</a></li>
+        <li><a href="pages/library.html">도서관</a></li>
+        <li><a href="pages/community.html">게시판</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 1. 히어로 -->
+    <section class="intro-hero vintage-shelves" aria-label="메인 히어로">
+      <h1 class="intro-title">교환독서, 우리끼리 돌려읽기</h1>
+      <p class="intro-sub">부담은 낮게, 재미는 높게</p>
+      
+      <div class="intro-actions">
+        <a class="btn" href="pages/schedule.html">일정 보기</a>
+        <a class="btn ghost" href="pages/library.html">도서 둘러보기</a>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">아래로 스크롤</div>
+    </section>
+
+    <!-- 2. 교환독서란? (스크롤 등장 애니메이션 적용) -->
+    <section aria-labelledby="about" class="about-section scroll-reveal">
+      <h2 id="about">교환독서란?</h2>
+      <div class="about-content">
+        <p>교환독서는 서로의 책을 나누며 새로운 이야기를 만나는 독서 모임입니다.</p>
+        <p>한 달에 한 번, 각자가 읽은 책을 다른 사람의 책과 교환하며,<br>평소 선택하지 않았을 책들을 만나고 다양한 관점을 경험합니다.</p>
+        <p>책을 교환하는 것은 단순히 책을 빌려주는 것이 아니라,<br>나의 생각과 감상을 누군가에게 전하고 그들의 이야기를 받아오는 특별한 경험입니다.</p>
+        <p>서로의 취향과 생각을 알아가는 시간입니다. 원하는 책을 골라 읽고, 책을 읽으면서 코멘트를 남깁니다.</p>
+        <p>다음 사람에게 패스하고, 한 바퀴가 돌면 한 회차가 종료되고, 함께 모여 이야기를 나눕니다.</p>
+        <p>혼자 고르기 어렵다면 서로의 선택을 빌려 보세요.</p>
+      </div>
+    </section>
+
+    <!-- 3. 진행 방법 -->
+    <section aria-labelledby="steps" class="steps-section scroll-reveal">
+      <h2 id="steps">진행 방법</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>책 준비</h3>
+          <p>각자 추천하고 싶은 책 1권을 선정하여 첫 페이지에 이름을 남깁니다.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>한 달간의 독서</h3>
+          <p>정해진 한 달 동안 책을 읽으며 감상 메모나 밑줄을 자유롭게 남깁니다.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>책 전달 및 교환</h3>
+          <p>월말 교환 일에 맞춰 다음 순번의 멤버에게 책을 안전하게 전달합니다.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>순환 읽기</h3>
+          <p>모든 멤버의 손을 거쳐 5권의 책이 한 바퀴 완전히 순환할 때까지 이어집니다.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">05</div>
+          <h3>회차 종료 및 토의</h3>
+          <p>처음 내 책이 나에게 돌아오면 모여서 함께 코멘트를 나누고 감상을 공유합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 진행 인원 (5인 카드) -->
+    <section aria-labelledby="team" class="team-section scroll-reveal">
+      <h2 id="team">진행 인원</h2>
+      <div class="team-grid">
+
+        <!-- 1. 시현 -->
+        <div class="flip-card" data-person="시현">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/sh.jpg" alt="시현 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+            </div>
+            <div class="flip-card-back">
+              <span class="bookmark-hole" aria-hidden="true"></span>
+              <div class="team-avatar">시현</div>
+              <p class="team-bio">SF와 판타지, 인문학, 인문서 등 가리지 않고 흥미가 있다면 다 좋아해요.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 태이 -->
+        <div class="flip-card" data-person="태이">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/te.jpg" alt="태이 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+            </div>
+            <div class="flip-card-back">
+              <span class="bookmark-hole" aria-hidden="true"></span>
+              <div class="team-avatar">태이</div>
+              <p class="team-bio">미스터리하고 박진감 넘치는 전개를 좋아해요.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 희수 -->
+        <div class="flip-card" data-person="희수">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/hs.jpg" alt="희수 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+            </div>
+            <div class="flip-card-back">
+              <span class="bookmark-hole" aria-hidden="true"></span>
+              <div class="team-avatar">희수</div>
+              <p class="team-bio">아름답게 엔딩을 맞이하는 것을 좋아해요. 아름다운 죽음만 있다면 장르는 상관 없답니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 지원 -->
+        <div class="flip-card" data-person="지원">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/jw.jpg" alt="지원 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+            </div>
+            <div class="flip-card-back">
+              <span class="bookmark-hole" aria-hidden="true"></span>
+              <div class="team-avatar">지원</div>
+              <p class="team-bio">에세이를 좋아해요. 일상의 소소한 이야기와 따뜻한 감성이 담긴 글을 읽는 것을 즐깁니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 민지 -->
+        <div class="flip-card" data-person="민지">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/mj.jpg" alt="민지 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+            </div>
+            <div class="flip-card-back">
+              <span class="bookmark-hole" aria-hidden="true"></span>
+              <div class="team-avatar">민지</div>
+              <p class="team-bio">이야기 속에 푹 빠져들 수 있는 소설을 좋아해요. 인물들의 감정과 여운이 오래 남는 책을 찾아 읽습니다.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer class="site-footer">
+    <p>© 교환독서 모임. 책으로 이어지는 우리들의 이야기.</p>
+  </footer>
+
+  <!-- 1) 헤더 부드러운 전환 & 2) 스크롤 단방향 등장 스크립트 -->
+  <script>
+    (() => {
+      // 1. 헤더 자연스러운 전환
+      const header = document.querySelector('.site-header');
+      const hero = document.querySelector('main .intro-hero');
+      if (header && hero) {
+        const headerObserver = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            header.classList.remove('is-solid');
+          } else {
+            header.classList.add('is-solid');
+          }
+        }, { root: null, threshold: 0, rootMargin: '-64px 0px 0px 0px' });
+        headerObserver.observe(hero);
+      }
+
+      // 2. 스크롤 시 등장 애니메이션 (단방향: 한 번 뜨면 유지)
+      const reveals = document.querySelectorAll('.scroll-reveal');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // 다시 위로 올라가도 사라지지 않음!
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => revealObserver.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
+

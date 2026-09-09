@@ -1,0 +1,444 @@
+/* ========================================
+   1. 기본 초기화 및 전역 스타일
+======================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Nanum Myeongjo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #FAF0D9;
+  color: #2B1713;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ========================================
+   2. 헤더 스타일 (구버전 원본 롤백)
+======================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: transparent;
+  transition: background .25s ease, backdrop-filter .25s ease, color .25s ease;
+}
+
+.logo {
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: color .25s ease;
+}
+
+.gnb {
+  display: flex;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.gnb a {
+  display: block;
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 500;
+  color: #fff;
+  padding: .4rem .8rem;
+  border-radius: .5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all .25s ease;
+}
+
+[aria-current="page"], .gnb a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* 구버전 is-solid 전환 */
+.site-header.is-solid {
+  background: #5C1A1A;
+  backdrop-filter: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.site-header.is-solid .logo {
+  color: #fff;
+  text-shadow: none;
+}
+
+.site-header.is-solid .gnb a {
+  color: #fff;
+  text-shadow: none;
+}
+
+.site-header.is-solid [aria-current="page"],
+.site-header.is-solid .gnb a:hover {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+/* ========================================
+   3. 메인 히어로 구획
+======================================== */
+.intro-hero.vintage-shelves {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  color: #fff;
+  background: 
+    linear-gradient(180deg, rgba(30, 20, 15, 0.50) 0%, rgba(30, 20, 15, 0.65) 50%, rgba(30, 20, 15, 0.78) 100%),
+    url("images/five.jpg") center/cover no-repeat;
+  background-color: #1e1412;
+}
+
+.intro-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.intro-sub {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.intro-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  background: #5C1A1A;
+  color: #fff;
+  border: 1px solid #5C1A1A;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.btn:hover {
+  background: #3D1111;
+  transform: translateY(-1px);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  animation: floatDown 2.5s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-hint::after {
+  content: '📖';
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+}
+
+/* ========================================
+   4. 스크롤 등장 애니메이션 공통 클래스
+======================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   5. 교환독서란? (ABOUT)
+======================================== */
+.about-section {
+  text-align: center;
+  padding: 6rem 2rem 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2.1rem;
+  color: #5C1A1A;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.about-section h2::before { content: '【 '; opacity: 0.45; }
+.about-section h2::after  { content: ' 】'; opacity: 0.45; }
+
+.about-content p {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.08rem;
+  color: #2B1713;
+  line-height: 2.15;
+  margin: 1.6rem 0;
+  word-break: keep-all;
+  opacity: 0.92;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-content p:hover {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+/* ========================================
+   6. 진행 방법 5단계 (STEPS SECTION)
+======================================== */
+.steps-section {
+  padding: 5rem 2rem 7rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.steps-section h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2.1rem;
+  color: #5C1A1A;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
+}
+
+.steps-section h2::before { content: '〔 '; opacity: 0.45; }
+.steps-section h2::after  { content: ' 〕'; opacity: 0.45; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.step-card {
+  background: #FFFEF9;
+  padding: 2rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(92, 26, 26, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(92, 26, 26, 0.12);
+}
+
+.step-num {
+  font-family: 'Grandiflora One', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5C1A1A;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+}
+
+.step-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  color: #2B1713;
+}
+
+.step-card p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #55423d;
+  word-break: keep-all;
+}
+
+/* ========================================
+   7. 진행 인원 (TEAM) - 5인 반응형 플립 카드
+======================================== */
+.team-section {
+  text-align: center;
+  padding: 5rem 2rem 8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.team-section h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2.1rem;
+  color: #5C1A1A;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.team-section h2::before { content: '《 '; opacity: 0.45; }
+.team-section h2::after  { content: ' 》'; opacity: 0.45; }
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card {
+  width: 240px;
+  height: 330px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background: #FFFEF9;
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flip-card-back {
+  background: #FFFEF9;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.bookmark-hole {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #FAF0D9;
+  border: 2px solid rgba(43, 23, 19, 0.2);
+  border-radius: 50%;
+}
+
+.team-avatar {
+  font-family: 'Grandiflora One', 'Nanum Myeongjo', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid currentColor;
+}
+
+.team-bio {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #2B1713;
+  word-break: keep-all;
+  text-align: center;
+}
+
+/* 멤버별 고유 색상 */
+.flip-card[data-person="시현"] .team-avatar { color: #5B7A9E; border-color: #5B7A9E; }
+.flip-card[data-person="태이"] .team-avatar { color: #B8707F; border-color: #B8707F; }
+.flip-card[data-person="희수"] .team-avatar { color: #6D9872; border-color: #6D9872; }
+.flip-card[data-person="지원"] .team-avatar { color: #8B71AC; border-color: #8B71AC; }
+.flip-card[data-person="민지"] .team-avatar { color: #C84B4B; border-color: #C84B4B; }
+
+/* ========================================
+   8. 하단 푸터
+======================================== */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid rgba(92, 26, 26, 0.12);
+  color: #6E5A53;
+  font-size: 0.9rem;
+}
+
+
+
