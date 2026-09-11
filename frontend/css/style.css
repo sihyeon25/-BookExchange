@@ -116,7 +116,7 @@ a {
   color: #fff;
   background: 
     linear-gradient(180deg, rgba(30, 20, 15, 0.50) 0%, rgba(30, 20, 15, 0.65) 50%, rgba(30, 20, 15, 0.78) 100%),
-    url("images/five.jpg") center/cover no-repeat;
+    url("../images/five.jpg") center/cover no-repeat;
   background-color: #1e1412;
 }
 
@@ -440,5 +440,141 @@ a {
   font-size: 0.9rem;
 }
 
+/* ========================================
+   9. 이번 달 교환 현황 & D-day (STATUS)
+======================================== */
+.status-section {
+  max-width: 1100px;
+  margin: 5rem auto 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #FFFEF9;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(92, 26, 26, 0.12);
+  box-shadow: 0 8px 30px rgba(43, 23, 19, 0.05);
+}
 
+.status-badge-wrap {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
 
+.round-badge {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5C1A1A;
+  background: rgba(92, 26, 26, 0.08);
+  padding: 0.35rem 0.8rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(92, 26, 26, 0.2);
+}
+
+.dday-badge {
+  font-family: 'Grandiflora One', 'Nanum Myeongjo', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FAF0D9;
+  background: #5C1A1A;
+  padding: 0.3rem 0.9rem;
+  border-radius: 2rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(92, 26, 26, 0.3);
+}
+
+.status-section h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.9rem;
+  color: #5C1A1A;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.status-section h2::before { content: '【 '; opacity: 0.45; }
+.status-section h2::after  { content: ' 】'; opacity: 0.45; }
+
+.status-sub {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.95rem;
+  color: #6E5A53;
+  margin-bottom: 2.5rem;
+}
+
+/* 릴레이 가로/반응형 보드 */
+.rotation-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.rotation-node {
+  background: #FAF0D9;
+  border: 1px solid rgba(92, 26, 26, 0.1);
+  border-radius: 0.9rem;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rotation-node:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(92, 26, 26, 0.1);
+}
+
+.reader-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reader-name {
+  font-family: 'Grandiflora One', 'Nanum Myeongjo', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* 멤버별 고유 색상 매칭 */
+.reader-sh { color: #5B7A9E; }
+.reader-te { color: #B8707F; }
+.reader-hs { color: #6D9872; }
+.reader-jw { color: #8B71AC; }
+.reader-mj { color: #C84B4B; }
+
+.arrow-indicator {
+  font-size: 1rem;
+  color: rgba(92, 26, 26, 0.4);
+}
+
+.book-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+  background: #FFFEF9;
+  padding: 0.6rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px dashed rgba(92, 26, 26, 0.2);
+}
+
+.book-owner {
+  font-size: 0.78rem;
+  color: #8C7A75;
+}
+
+.book-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #2B1713;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

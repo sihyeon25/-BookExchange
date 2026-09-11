@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Grandiflora+One&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -20,9 +20,9 @@
     <nav aria-label="주요">
       <ul class="gnb">
         <li><a aria-current="page" href="index.html">홈</a></li>
-        <li><a href="pages/schedule.html">일정</a></li>
-        <li><a href="pages/library.html">도서관</a></li>
-        <li><a href="pages/community.html">게시판</a></li>
+        <li><a href="schedule.html">일정</a></li>
+        <li><a href="library.html">도서관</a></li>
+        <li><a href="community.html">게시판</a></li>
       </ul>
     </nav>
   </header>
@@ -34,8 +34,8 @@
       <p class="intro-sub">부담은 낮게, 재미는 높게</p>
       
       <div class="intro-actions">
-        <a class="btn" href="pages/schedule.html">일정 보기</a>
-        <a class="btn ghost" href="pages/library.html">도서 둘러보기</a>
+        <a class="btn" href="schedule.html">일정 보기</a>
+        <a class="btn ghost" href="library.html">도서 둘러보기</a>
       </div>
 
       <div class="scroll-hint" aria-hidden="true">아래로 스크롤</div>
@@ -95,7 +95,7 @@
         <div class="flip-card" data-person="시현">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/sh.jpg" alt="시현 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+              <img src="../images/sh.jpg" alt="시현 사진" class="team-photo" onerror="this.src='../images/five.jpg'">
             </div>
             <div class="flip-card-back">
               <span class="bookmark-hole" aria-hidden="true"></span>
@@ -109,7 +109,7 @@
         <div class="flip-card" data-person="태이">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/te.jpg" alt="태이 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+              <img src="../images/te.jpg" alt="태이 사진" class="team-photo" onerror="this.src='../images/five.jpg'">
             </div>
             <div class="flip-card-back">
               <span class="bookmark-hole" aria-hidden="true"></span>
@@ -123,7 +123,7 @@
         <div class="flip-card" data-person="희수">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/hs.jpg" alt="희수 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+              <img src="../images/hs.jpg" alt="희수 사진" class="team-photo" onerror="this.src='../images/five.jpg'">
             </div>
             <div class="flip-card-back">
               <span class="bookmark-hole" aria-hidden="true"></span>
@@ -137,7 +137,7 @@
         <div class="flip-card" data-person="지원">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/jw.jpg" alt="지원 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+              <img src="../images/jw.jpg" alt="지원 사진" class="team-photo" onerror="this.src='../images/five.jpg'">
             </div>
             <div class="flip-card-back">
               <span class="bookmark-hole" aria-hidden="true"></span>
@@ -151,7 +151,7 @@
         <div class="flip-card" data-person="민지">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/mj.jpg" alt="민지 사진" class="team-photo" onerror="this.src='images/five.jpg'">
+              <img src="../images/mj.jpg" alt="민지 사진" class="team-photo" onerror="this.src='../images/five.jpg'">
             </div>
             <div class="flip-card-back">
               <span class="bookmark-hole" aria-hidden="true"></span>
@@ -161,6 +161,80 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ============================================
+         CURRENT ROTATION: 이번 달 교환 현황 & D-day
+    ============================================= -->
+    <section aria-labelledby="status" class="status-section scroll-reveal">
+      <div class="status-badge-wrap">
+        <span class="round-badge">제1회차 순환 중</span>
+        <span class="dday-badge">교환 D-12</span>
+      </div>
+      <h2 id="status">이번 달 독서 릴레이</h2>
+      <p class="status-sub">2026년 9월 교환 기간 · 각자 손에 쥔 책을 확인해 보세요.</p>
+
+      <div class="rotation-board">
+        <!-- 1. 시현 -->
+        <div class="rotation-node">
+          <div class="reader-info">
+            <span class="reader-name reader-sh">시현</span>
+            <span class="arrow-indicator">⟶</span>
+          </div>
+          <div class="book-pill">
+            <span class="book-owner">민지의 책</span>
+            <span class="book-title">『책 제목 1』</span>
+          </div>
+        </div>
+
+        <!-- 2. 태이 -->
+        <div class="rotation-node">
+          <div class="reader-info">
+            <span class="reader-name reader-te">태이</span>
+            <span class="arrow-indicator">⟶</span>
+          </div>
+          <div class="book-pill">
+            <span class="book-owner">시현의 책</span>
+            <span class="book-title">『책 제목 2』</span>
+          </div>
+        </div>
+
+        <!-- 3. 희수 -->
+        <div class="rotation-node">
+          <div class="reader-info">
+            <span class="reader-name reader-hs">희수</span>
+            <span class="arrow-indicator">⟶</span>
+          </div>
+          <div class="book-pill">
+            <span class="book-owner">태이의 책</span>
+            <span class="book-title">『책 제목 3』</span>
+          </div>
+        </div>
+
+        <!-- 4. 지원 -->
+        <div class="rotation-node">
+          <div class="reader-info">
+            <span class="reader-name reader-jw">지원</span>
+            <span class="arrow-indicator">⟶</span>
+          </div>
+          <div class="book-pill">
+            <span class="book-owner">희수의 책</span>
+            <span class="book-title">『책 제목 4』</span>
+          </div>
+        </div>
+
+        <!-- 5. 민지 -->
+        <div class="rotation-node">
+          <div class="reader-info">
+            <span class="reader-name reader-mj">민지</span>
+            <span class="arrow-indicator">⟶</span>
+          </div>
+          <div class="book-pill">
+            <span class="book-owner">지원의 책</span>
+            <span class="book-title">『책 제목 5』</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>

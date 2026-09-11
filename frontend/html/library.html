@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도서관 | 교환독서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/library.css" />
+</head>
+<body class="library-page">
+
+  <!-- 헤더 (홈과 동일한 네비게이션) -->
+  <header class="site-header is-solid" id="header">
+    <a href="index.html" class="logo">교환독서</a>
+    <nav class="gnb" aria-label="주요">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#status">릴레이 현황</a>
+      <a href="library.html" aria-current="page">도서관</a>
+      <a href="schedule.html">일정</a>
+      <a href="index.html#team">멤버</a>
+    </nav>
+  </header>
+
+  <main class="library-container">
+    <!-- 서재 상단 타이틀 -->
+    <section class="library-hero">
+      <p class="library-subtitle">THE ARCHIVE SHELF</p>
+      <h1 class="library-title">서재의 서가</h1>
+      <p class="library-desc">책장에 꽂힌 책에 손을 얹어보세요. 머물렀던 흔적들이 책장을 열어줍니다.</p>
+
+      <!-- 읽는 중 / 완독 탭 버튼 -->
+      <div class="shelf-tabs">
+        <button class="shelf-tab-btn active" data-target="current">
+          <span class="tab-icon">📖</span> 지금 읽는 중 (5)
+        </button>
+        <button class="shelf-tab-btn" data-target="completed">
+          <span class="tab-icon">📚</span> 완독한 서가 (7)
+        </button>
+      </div>
+
+      <!-- 검색 & 필터 바 -->
+      <div class="search-filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="book-search-input" placeholder="도서명 또는 작가 검색..." />
+        </div>
+        <div class="filter-group">
+          <select id="recommender-filter" class="custom-select">
+            <option value="all">전체 추천인</option>
+            <option value="시현">시현</option>
+            <option value="태이">태이</option>
+            <option value="희수">희수</option>
+            <option value="지원">지원</option>
+            <option value="민지">민지</option>
+          </select>
+          <select id="genre-filter" class="custom-select">
+            <option value="all">전체 장르</option>
+            <option value="소설">소설/문학</option>
+            <option value="SF">SF/판타지</option>
+            <option value="인문">인문/교양</option>
+            <option value="에세이">에세이</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- [섹션 1] 지금 읽는 중인 서가 (5권) -->
+    <section id="shelf-current" class="shelf-panel active">
+      <div class="shelf-rack">
+        <div class="spine-row">
+
+          <!-- 1. 나는 소망한다 내게 금지된 것을 -->
+          <a href="book-detail.html?id=c1" class="standing-book" 
+             data-title="나는 소망한다 내게 금지된 것을" data-author="양귀자" data-member="시현" data-genre="소설"
+             style="--spine-color: #8C2D35;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">나는 소망한다 내게 금지된 것을</span>
+                <span class="spine-call-no">SH-01</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/나는 소망한다 내게서..._양귀자.jpg" alt="나는 소망한다 내게 금지된 것을" onerror="this.src='../images/five.jpg'" />
+                <div class="cover-overlay"><span class="cover-hint">자세히 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. 프로젝트 헤일메리 -->
+          <a href="book-detail.html?id=c2" class="standing-book" 
+             data-title="프로젝트 헤일메리" data-author="앤디 위어" data-member="태이" data-genre="SF"
+             style="--spine-color: #1F6E8C;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">프로젝트 헤일메리</span>
+                <span class="spine-call-no">TE-01</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/프로젝트 헤일메리_엔디 위어.jpg" alt="프로젝트 헤일메리" />
+                <div class="cover-overlay"><span class="cover-hint">자세히 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. 자본주의 -->
+          <a href="book-detail.html?id=c3" class="standing-book" 
+             data-title="자본주의" data-author="EBS" data-member="희수" data-genre="인문"
+             style="--spine-color: #C07F00;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">자본주의</span>
+                <span class="spine-call-no">HS-01</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/자본주의_EBS.jpg" alt="자본주의" />
+                <div class="cover-overlay"><span class="cover-hint">자세히 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. 아가미 -->
+          <a href="book-detail.html?id=c4" class="standing-book" 
+             data-title="아가미" data-author="구병모" data-member="지원" data-genre="소설"
+             style="--spine-color: #2E7D7E;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">아가미</span>
+                <span class="spine-call-no">JW-01</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/아가미_구병모.png" alt="아가미" />
+                <div class="cover-overlay"><span class="cover-hint">자세히 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. 달러구트 꿈 백화점 (읽는 중으로 이동) -->
+          <a href="book-detail.html?id=c5" class="standing-book" 
+             data-title="달러구트 꿈 백화점" data-author="이미예" data-member="민지" data-genre="소설"
+             style="--spine-color: #363062;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">달러구트 꿈 백화점</span>
+                <span class="spine-call-no">MJ-01</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/달러구트 꿈 백화점 0_이미예.jpg" alt="달러구트 꿈 백화점" />
+                <div class="cover-overlay"><span class="cover-hint">자세히 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="wood-board"></div>
+      </div>
+    </section>
+
+    <!-- [섹션 2] 완독한 서가 (7권) -->
+    <section id="shelf-completed" class="shelf-panel">
+      <div class="shelf-rack">
+        <div class="spine-row">
+
+          <!-- 1. 지뢰진 글리코 -->
+          <a href="book-detail.html?id=d1" class="standing-book" 
+             data-title="지뢰진 글리코" data-author="" data-member="민지" data-genre="소설"
+             style="--spine-color: #79372B;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">지뢰진 글리코</span>
+                <span class="spine-call-no">MJ-02</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/고지뢰글리코__아오사키유고.jpg" alt="지뢰진 글리코" onerror="this.src='../images/five.jpg'" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. 궤도의 밖에서, 나의 옴에게 -->
+          <a href="book-detail.html?id=d2" class="standing-book" 
+             data-title="궤도의 밖에서 나의 옴에게" data-author="" data-member="시현" data-genre="SF"
+             style="--spine-color: #435B40;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">궤도의 밖에서 나의 옴에게</span>
+                <span class="spine-call-no">SH-02</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/궤도의 밖에서..._전삼혜.jpeg" alt="궤도의 밖에서 나의 옴에게" onerror="this.src='../images/five.jpg'" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. 다정한 사람이 되는 법 -->
+          <a href="book-detail.html?id=d3" class="standing-book" 
+             data-title="다정한 사람이 되는 법" data-author="" data-member="태이" data-genre="에세이"
+             style="--spine-color: #936B4E;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">다정한 사람이 되는 법</span>
+                <span class="spine-call-no">TE-02</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/다정한 사람이..._이해인.jpg" alt="다정한 사람이 되는 법" onerror="this.src='../images/five.jpg'" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. 바깥은 여름 -->
+          <a href="book-detail.html?id=d4" class="standing-book" 
+             data-title="바깥은 여름" data-author="김애란" data-member="지원" data-genre="소설"
+             style="--spine-color: #4A6B82;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">바깥은 여름</span>
+                <span class="spine-call-no">JW-02</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/바깥은 여름_김애란.jpeg" alt="바깥은 여름" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. 일억 번째 여름 -->
+          <a href="book-detail.html?id=d5" class="standing-book" 
+             data-title="일억 번째 여름" data-author="청예" data-member="희수" data-genre="소설"
+             style="--spine-color: #386B4D;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">일억 번째 여름</span>
+                <span class="spine-call-no">HS-02</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/일억 번째 여름_청예.jpg" alt="일억 번째 여름" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 6. 지구 끝의 온실 -->
+          <a href="book-detail.html?id=d6" class="standing-book" 
+             data-title="지구 끝의 온실" data-author="김초엽" data-member="시현" data-genre="SF"
+             style="--spine-color: #1E5144;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">지구 끝의 온실</span>
+                <span class="spine-call-no">SH-03</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/지구 끝의 온실_김초엽.jpg" alt="지구 끝의 온실" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 7. 여름 -->
+          <a href="book-detail.html?id=d7" class="standing-book" 
+             data-title="여름" data-author="이디스 워튼" data-member="태이" data-genre="소설"
+             style="--spine-color: #A34828;">
+            <div class="book-flipper">
+              <div class="book-spine">
+                <div class="spine-top-accent"></div>
+                <span class="spine-title">여름</span>
+                <span class="spine-call-no">TE-03</span>
+              </div>
+              <div class="book-front-cover">
+                <img src="../images/BOOK/여름_이디스워튼.jpg" alt="여름" />
+                <div class="cover-overlay"><span class="cover-hint">기록 보기 ➔</span></div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="wood-board"></div>
+      </div>
+    </section>
+
+    <!-- 검색 결과 없음 안내 -->
+    <div id="no-search-result" class="no-result-msg" style="display: none;">
+      <p>서가에서 해당하는 책을 찾지 못했습니다.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 교환독서. All rights reserved.</p>
+  </footer>
+
+  <!-- 탭 전환 + 검색/필터 스크립트 -->
+  <script>
+    const tabBtns = document.querySelectorAll('.shelf-tab-btn');
+    const panels = document.querySelectorAll('.shelf-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetId = `shelf-${btn.dataset.target}`;
+        document.getElementById(targetId).classList.add('active');
+        applyFilter();
+      });
+    });
+
+    const searchInput = document.getElementById('book-search-input');
+    const recommenderFilter = document.getElementById('recommender-filter');
+    const genreFilter = document.getElementById('genre-filter');
+    const noResultMsg = document.getElementById('no-search-result');
+
+    function applyFilter() {
+      const query = searchInput.value.trim().toLowerCase();
+      const selectedMember = recommenderFilter.value;
+      const selectedGenre = genreFilter.value;
+
+      const activePanel = document.querySelector('.shelf-panel.active');
+      const books = activePanel.querySelectorAll('.standing-book');
+      let visibleCount = 0;
+
+      books.forEach(book => {
+        const title = (book.dataset.title || '').toLowerCase();
+        const author = (book.dataset.author || '').toLowerCase();
+        const member = book.dataset.member || '';
+        const genre = book.dataset.genre || '';
+
+        const matchesQuery = query === '' || title.includes(query) || author.includes(query);
+        const matchesMember = selectedMember === 'all' || member === selectedMember;
+        const matchesGenre = selectedGenre === 'all' || genre === selectedGenre;
+
+        if (matchesQuery && matchesMember && matchesGenre) {
+          book.style.display = 'block';
+          visibleCount++;
+        } else {
+          book.style.display = 'none';
+        }
+      });
+
+      noResultMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', applyFilter);
+    recommenderFilter.addEventListener('change', applyFilter);
+    genreFilter.addEventListener('change', applyFilter);
+  </script>
+
+</body>
+</html>
