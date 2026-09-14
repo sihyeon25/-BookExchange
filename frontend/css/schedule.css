@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+/* ========================================
+   SCHEDULE PAGE EXCLUSIVE STYLES
+   교환독서 일정 전용 스타일시트
+======================================== */
+
+/* 1. 상단 고정 헤더 가림 방지 (scroll-margin-top) */
+#round3, #round2, #round1 {
+  scroll-margin-top: 5.5rem;
+}
+
+/* 2. 일정 페이지 테마 아이덴티티: 딥 슬레이트 블루 */
+body[data-page="schedule"] .site-header.is-solid {
+  background: #2C3E50;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.schedule-page-title {
+  text-align: center;
+  color: #2C3E50;
+  margin: 2.5rem 0 1.5rem;
+}
+
+/* 3. 회차 점프 탭 (3차 / 2차 / 1차) */
+.schedule-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.schedule-tabs .tab-btn {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.6rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.schedule-tabs .tab-btn:hover {
+  border-color: #2C3E50;
+  color: #2C3E50;
+  transform: translateY(-1px);
+}
+
+.schedule-tabs .tab-btn.is-active {
+  background: #2C3E50;
+  border-color: #2C3E50;
+  color: #FAF0D9;
+  font-weight: 700;
+}
+
+/* 4. 내 책 찾기 칩 바 */
+.member-select-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.member-select-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-right: 0.2rem;
+}
+
+.member-chip {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.member-chip:hover {
+  border-color: #2C3E50;
+  color: #2C3E50;
+}
+
+.member-chip.is-active {
+  background: #2C3E50;
+  border-color: #2C3E50;
+  color: #FAF0D9;
+  font-weight: 700;
+}
+
+/* 5. 현재 내가 읽는 책 퀵 대시보드 배너 */
+.current-reading-banner {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  background: linear-gradient(135deg, #FFFEF9 0%, #FAF0D9 100%);
+  border: 2px solid #D4C5B0;
+  border-radius: 0.8rem;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+}
+
+.banner-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #2C3E50;
+  background: rgba(44, 62, 80, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.banner-guide-text {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.my-book-result {
+  font-size: 1.15rem;
+  color: #2B1713;
+  line-height: 1.6;
+}
+
+.my-book-result .reader-name {
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.my-book-result .highlight-book-title {
+  color: #5C1A1A;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* 6. 테이블 패널 & 헤더 */
+.schedule-panel {
+  padding: 2rem;
+  margin-bottom: 3.5rem;
+  border: 1px solid #D4C5B0;
+  box-shadow: 0 4px 16px rgba(43, 23, 19, 0.05);
+}
+
+.schedule-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #2C3E50;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.schedule-round-title {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #2C3E50;
+  border: none;
+  padding: 0;
+}
+
+.schedule-period-badge {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  background: color-mix(in oklab, #2C3E50 12%, var(--paper));
+  color: #2C3E50;
+  border-radius: 0.4rem;
+  font-weight: 600;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.schedule-table th {
+  background: color-mix(in oklab, #2C3E50 12%, var(--paper));
+  color: #2C3E50;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.schedule-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  transition: opacity 0.25s ease, background 0.25s ease;
+}
+
+.period-cell {
+  vertical-align: middle;
+  font-weight: 700;
+  color: #2C3E50;
+  background: color-mix(in oklab, #2C3E50 4%, var(--paper));
+  border-right: 1px solid var(--line);
+}
+
+.period-cell.is-current {
+  background: color-mix(in oklab, #2C3E50 10%, var(--paper));
+}
+
+.now-pill {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: #C84B4B;
+  color: #fff;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  width: fit-content;
+  margin: 0 auto 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.round-group-end td {
+  border-bottom: 2px solid #2C3E50 !important;
+}
+
+.book-title-cell {
+  text-align: left;
+  padding-left: 1.5rem !important;
+  font-weight: 600;
+}
+
+/* 7. 읽는 사람 뱃지 */
+.reader-tag {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tag-sh { background: rgba(91, 122, 158, 0.15); color: #5B7A9E; }
+.tag-te { background: rgba(184, 112, 127, 0.15); color: #B8707F; }
+.tag-hs { background: rgba(109, 152, 114, 0.15); color: #6D9872; }
+.tag-jw { background: rgba(139, 113, 172, 0.15); color: #8B71AC; }
+.tag-mj { background: rgba(200, 75, 75, 0.15); color: #C84B4B; }
+
+/* 8. 내 책 필터링 시 스포트라이트 인터랙션 */
+.schedule-table tbody tr.is-highlighted {
+  background: color-mix(in oklab, #2C3E50 8%, var(--paper));
+}
+
+.schedule-table tbody tr.is-highlighted .book-title-cell {
+  font-weight: 800;
+  color: #5C1A1A;
+}
+
+.schedule-table tbody tr.is-dimmed {
+  opacity: 0.25;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .schedule-panel {
+    padding: 1.2rem;
+  }
+  .book-title-cell {
+    padding-left: 0.6rem !important;
+    font-size: 0.9rem;
+  }
+  .current-reading-banner {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  .my-book-result {
+    font-size: 1rem;
+  }
+}

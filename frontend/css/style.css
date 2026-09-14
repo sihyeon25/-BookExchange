@@ -1,3 +1,13 @@
+/* 서브페이지(일정 등)에서 공통으로 쓰는 색상 값 */
+:root {
+  --ink: #2B1713;
+  --paper: #FAF0D9;
+  --paper-light: #FFFEF9;
+  --burgundy: #5C1A1A;
+  --line: rgba(92, 26, 26, 0.12);
+  --line-strong: rgba(92, 26, 26, 0.25);
+}
+
 /* ========================================
    1. 기본 초기화 및 전역 스타일
 ======================================== */
@@ -18,6 +28,38 @@ body {
   background: #FAF0D9;
   color: #2B1713;
   overflow-x: hidden;
+}
+
+/* 헤더가 항상 고정된 하위 페이지용: 본문이 헤더에 가려지지 않도록 상단 여백 확보 */
+body.subpage main {
+  padding-top: 6.5rem;
+}
+
+/* 스크린리더용: 포커스될 때만 화면에 드러나는 건너뛰기 링크 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.6rem 1rem;
+  clip: auto;
+  background: var(--burgundy);
+  color: #fff;
+  border-radius: 0.5rem;
+  z-index: 1000;
 }
 
 a {
@@ -577,4 +619,200 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+}
+
+/* ========================================
+   10. 일정 페이지 (SCHEDULE)
+======================================== */
+.schedule-page-title {
+  text-align: center;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+/* 회차 탭: 앵커 링크로 각 표로 바로 이동 */
+.schedule-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  background: var(--paper-light);
+  border: 1px solid var(--line-strong);
+  color: #6E5A53;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(92, 26, 26, 0.08);
+}
+
+.tab-btn.is-active {
+  background: var(--burgundy);
+  color: #fff;
+  border-color: var(--burgundy);
+}
+
+/* 카드형 패널 공통 (검색바, 회차 일정 등에서 재사용) */
+.panel {
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(43, 23, 19, 0.05);
+}
+
+.schedule-panel {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+/* 지난 회차는 살짝 톤 다운 */
+.past-schedule-panel {
+  opacity: 0.75;
+}
+
+.past-schedule-panel .schedule-round-title {
+  color: #8C7A75;
+}
+
+.schedule-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.schedule-round-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.schedule-period-badge {
+  font-size: 0.85rem;
+  color: #6E5A53;
+  background: rgba(92, 26, 26, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.schedule-table th {
+  background: var(--burgundy);
+  color: #fff;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.schedule-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.schedule-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.col-period { width: 110px; }
+.col-person { width: 110px; }
+
+/* ========================================
+   SCHEDULE PAGE REFINED STYLES
+======================================== */
+
+/* 상단 멤버 하트 안내 */
+.member-symbol-guide {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.member-symbol-guide span {
+  padding: 0.3rem 0.6rem;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: 0.4rem;
+}
+
+/* 기간 셀 세로 정렬 및 배경 */
+.period-cell {
+  vertical-align: middle;
+  font-weight: 700;
+  color: #2C3E50;
+  background: color-mix(in oklab, #2C3E50 4%, var(--paper));
+  border-right: 1px solid var(--line);
+}
+
+/* 각 기간 그룹 끝 구분선 */
+.round-group-end td {
+  border-bottom: 2px solid #2C3E50 !important;
+}
+
+/* 테이블 텍스트 정렬 */
+.book-title-cell {
+  text-align: left;
+  padding-left: 1.2rem !important;
+  font-weight: 600;
+}
+
+/* ========================================
+   11. 푸터 링크 확장 (About / GitHub / Contact)
+======================================== */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: var(--burgundy);
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-divider {
+  color: #B8A69C;
 }

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="heritage">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2C3E50">
+  <meta name="msapplication-TileColor" content="#2C3E50">
+  <title>교환독서 – 일정</title>
+
+  <!-- Google Fonts: Nanum Myeongjo & Grandiflora One -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Grandiflora+One&display=swap" rel="stylesheet">
+
+  <!-- 공통 스타일시트 & 일정 전용 스타일시트 분리 연결 -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/schedule.css">
+</head>
+<body class="subpage" data-page="schedule">
+  <a href="#main" class="sr-only">본문으로 건너뛰기</a>
+
+  <!-- 상단 헤더 -->
+  <header class="site-header is-solid">
+    <a class="logo" href="../index.html">교환독서</a>
+    <nav aria-label="주요">
+      <ul class="gnb">
+        <li><a href="../index.html?from=internal">홈</a></li>
+        <li><a aria-current="page" href="schedule.html">일정</a></li>
+        <li><a href="library.html">도서관</a></li>
+        <li><a href="community.html">게시판</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main id="main">
+    <h1 class="schedule-page-title">【 일정 】</h1>
+
+    <!-- 1. 회차 점프 탭 (3차/2차/1차) -->
+    <div class="schedule-tabs">
+      <a href="#round3" class="tab-btn is-active">3차 (현재)</a>
+      <a href="#round2" class="tab-btn">2차</a>
+      <a href="#round1" class="tab-btn">1차</a>
+    </div>
+
+    <!-- 2. 직관적인 5인 내 책 찾기 필터 -->
+    <div class="member-select-bar">
+      <span class="member-select-label">내 책 찾기:</span>
+      <button type="button" class="member-chip is-active" data-person="all">전체보기</button>
+      <button type="button" class="member-chip" data-person="시현">시현</button>
+      <button type="button" class="member-chip" data-person="태이">태이</button>
+      <button type="button" class="member-chip" data-person="희수">희수</button>
+      <button type="button" class="member-chip" data-person="지원">지원</button>
+      <button type="button" class="member-chip" data-person="민지">민지</button>
+    </div>
+
+    <!-- 3. 현재 내가 읽을 책 퀵 대시보드 배너 -->
+    <div class="current-reading-banner" id="myCurrentBookBanner">
+      <div class="banner-badge">3차 지금 읽는 책 (9/15 – 10월)</div>
+      <div class="banner-content" id="bannerContent">
+        <span class="banner-guide-text">위에서 내 이름을 누르면 지금 읽어야 할 책이 바로 표시됩니다.</span>
+      </div>
+    </div>
+
+    <!-- ============================================
+         3차 일정 (현재 진행중)
+    ============================================= -->
+    <section id="round3" class="panel schedule-panel">
+      <div class="schedule-panel-header">
+        <h2 class="schedule-round-title">제3차 교환독서</h2>
+        <span class="schedule-period-badge">26.09.15 – 27.03</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="table schedule-table" aria-label="3차 교환독서 일정">
+          <thead>
+            <tr>
+              <th scope="col" class="col-period">기간</th>
+              <th scope="col" class="col-title">책 제목</th>
+              <th scope="col" class="col-person">읽는 사람</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 9월 15일 - 10월 (NOW) -->
+            <tr data-person="태이"><td rowspan="5" class="period-cell is-current"><span class="now-pill">NOW</span>9/15 – 10월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="지원"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="민지" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
+
+            <!-- 11월 -->
+            <tr data-person="민지"><td rowspan="5" class="period-cell">11월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="지원" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+
+            <!-- 12-1월 -->
+            <tr data-person="지원"><td rowspan="5" class="period-cell">12 – 1월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="민지"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+
+            <!-- 2월 -->
+            <tr data-person="희수"><td rowspan="5" class="period-cell">2월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="지원"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="민지"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+
+            <!-- 3월 -->
+            <tr data-person="시현"><td rowspan="5" class="period-cell">3월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="지원"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="민지"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
+            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================
+         2차 일정 (아카이브)
+    ============================================= -->
+    <section id="round2" class="panel schedule-panel past-schedule-panel">
+      <div class="schedule-panel-header">
+        <h2 class="schedule-round-title">제2차 교환독서</h2>
+        <span class="schedule-period-badge">25.10 – 26.07 (완료)</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="table schedule-table" aria-label="2차 교환독서 기록">
+          <thead>
+            <tr>
+              <th scope="col" class="col-period">기간</th>
+              <th scope="col" class="col-title">책 제목</th>
+              <th scope="col" class="col-person">읽은 사람</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 10-11월 -->
+            <tr data-person="태이"><td rowspan="4" class="period-cell">10 – 11월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="지원" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+
+            <!-- 12-1월 -->
+            <tr data-person="희수"><td rowspan="4" class="period-cell">12 – 1월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="지원"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+
+            <!-- 2월 -->
+            <tr data-person="시현"><td rowspan="4" class="period-cell">2월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="지원"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+
+            <!-- 3-4월 -->
+            <tr data-person="지원"><td rowspan="4" class="period-cell">3 – 4월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================
+         1차 일정 (아카이브)
+    ============================================= -->
+    <section id="round1" class="panel schedule-panel past-schedule-panel">
+      <div class="schedule-panel-header">
+        <h2 class="schedule-round-title">제1차 교환독서</h2>
+        <span class="schedule-period-badge">25.05 – 25.09 (완료)</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="table schedule-table" aria-label="1차 교환독서 기록">
+          <thead>
+            <tr>
+              <th scope="col" class="col-period">기간</th>
+              <th scope="col" class="col-title">책 제목</th>
+              <th scope="col" class="col-person">읽은 사람</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 4-5월 -->
+            <tr data-person="희수"><td rowspan="3" class="period-cell">4 – 5월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="태이"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+
+            <!-- 6-7월 -->
+            <tr data-person="시현"><td rowspan="3" class="period-cell">6 – 7월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+
+            <!-- 8-9월 -->
+            <tr data-person="태이"><td rowspan="3" class="period-cell">8 – 9월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+            <tr data-person="시현"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <span class="footer-divider">·</span>
+        <a href="https://github.com/sihyeon25/-BookExchange" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-divider">·</span>
+        <a href="mailto:sihyeon25@naver.com">Contact</a>
+      </div>
+      <small>© 2026 교환독서. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- 내 책 퀵 뷰 & 스포트라이트 스크립트 -->
+  <script>
+    (() => {
+      const current3rdBooks = {
+        '태이': '달러구트 꿈 백화점 0',
+        '시현': '나는 소망한다 내게 금지된 것을',
+        '희수': '프로젝트 헤일메리',
+        '지원': '자본주의',
+        '민지': '아가미'
+      };
+
+      const chips = document.querySelectorAll('.member-chip');
+      const rows = document.querySelectorAll('.schedule-table tbody tr');
+      const bannerContent = document.getElementById('bannerContent');
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('is-active'));
+          chip.classList.add('is-active');
+
+          const person = chip.dataset.person;
+
+          if (person === 'all') {
+            bannerContent.innerHTML = `<span class="banner-guide-text">위에서 내 이름을 누르면 지금 읽어야 할 책이 바로 표시됩니다.</span>`;
+            rows.forEach(r => r.classList.remove('is-dimmed', 'is-highlighted'));
+          } else {
+            const bookTitle = current3rdBooks[person] || '도서 정보 확인중';
+            bannerContent.innerHTML = `
+              <div class="my-book-result">
+                <span class="reader-name">${person}</span>님이 지금 읽는 책은 
+                <strong class="highlight-book-title">《${bookTitle}》</strong> 입니다.
+              </div>
+            `;
+
+            rows.forEach(r => {
+              if (r.dataset.person === person) {
+                r.classList.add('is-highlighted');
+                r.classList.remove('is-dimmed');
+              } else {
+                r.classList.add('is-dimmed');
+                r.classList.remove('is-highlighted');
+              }
+            });
+          }
+        });
+      });
+    })();
+  </script>
+  <script src="../js/page-transitions.js"></script>
+</body>
+</html>
