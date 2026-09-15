@@ -1,0 +1,277 @@
+/* 프로필 페이지 전용 스타일 */
+.profile-page {
+  background-color: #FAF0D9;
+  color: #2F241E;
+}
+
+.profile-container {
+  min-height: calc(100vh - 120px);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 130px 20px 90px;
+}
+
+/* 상단 타이틀 */
+.profile-hero {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.profile-subtitle {
+  font-family: 'Grandiflora One', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  color: #8C4843;
+  margin-bottom: 6px;
+}
+
+.profile-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--burgundy);
+  margin-bottom: 10px;
+}
+
+.profile-desc {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.95rem;
+  color: #6C5B52;
+  margin-bottom: 35px;
+  word-break: keep-all;
+}
+
+/* 5인 네비게이션 탭 바 */
+.member-tab-nav {
+  display: inline-flex;
+  gap: 10px;
+  background-color: #EBDDC1;
+  padding: 6px;
+  border-radius: 30px;
+  box-shadow: inset 0 2px 4px rgba(47, 36, 30, 0.12);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.member-nav-btn {
+  border: none;
+  background: none;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 20px;
+  color: #554439;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-seal {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--btn-color, var(--burgundy));
+  display: inline-block;
+}
+
+.member-nav-btn.active {
+  background-color: var(--burgundy);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(66, 39, 1, 0.3);
+}
+
+.member-nav-btn.active .nav-seal {
+  background-color: #FFFFFF;
+}
+
+/* 프로필 패널 */
+.member-profile-panel {
+  display: none;
+}
+
+.member-profile-panel.active {
+  display: block;
+  animation: fadeInProfile 0.4s ease forwards;
+}
+
+@keyframes fadeInProfile {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 프로필 메인 카드 */
+.profile-card {
+  background: #FFFEF9;
+  border: 1px solid #D5C5A8;
+  border-top: 5px solid var(--theme-color, var(--burgundy));
+  border-radius: 6px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(47, 36, 30, 0.08);
+  display: flex;
+  gap: 40px;
+}
+
+/* 왼쪽 프로필 이미지 및 고유 테마명 */
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.profile-avatar-frame {
+  width: 170px;
+  height: 220px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(47, 36, 30, 0.18);
+  border: 4px solid #F4EAD4;
+  background-color: #EBDDC1;
+}
+
+.profile-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.theme-tag {
+  margin-top: 14px;
+  font-family: 'Grandiflora One', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--theme-color, var(--burgundy));
+  font-weight: bold;
+}
+
+/* 오른쪽 상세 정보 */
+.profile-right {
+  flex: 1;
+}
+
+.profile-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.member-name {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2F241E;
+}
+
+.member-role {
+  font-family: 'Grandiflora One', serif;
+  font-size: 0.9rem;
+  color: var(--theme-color, var(--burgundy));
+  letter-spacing: 0.05em;
+}
+
+.member-bio {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.98rem;
+  color: #524239;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  word-break: keep-all;
+}
+
+/* 취향 해시태그 */
+.taste-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tag {
+  background-color: #F4EAD4;
+  color: #554439;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+/* 도서 이력 */
+.shelf-history {
+  background: #FAF4E8;
+  border: 1px dashed #D5C5A8;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.history-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+
+.book-mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.88rem;
+  color: #5A4A41;
+}
+
+/* 멤버 대표 문장 인용구 */
+.member-quote-box {
+  border-left: 3px solid var(--theme-color, var(--burgundy));
+  padding-left: 14px;
+  position: relative;
+}
+
+.quote-mark {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.8rem;
+  color: var(--theme-color, var(--burgundy));
+  line-height: 1;
+  display: block;
+}
+
+.quote-text {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #6C5B52;
+  margin-top: -6px;
+  word-break: keep-all;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 700px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px;
+  }
+  .profile-right {
+    text-align: center;
+  }
+  .profile-header {
+    justify-content: center;
+  }
+  .taste-tags {
+    justify-content: center;
+  }
+  .shelf-history {
+    text-align: left;
+  }
+  .member-quote-box {
+    text-align: left;
+  }
+}

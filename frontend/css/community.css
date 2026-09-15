@@ -1,0 +1,445 @@
+@charset "UTF-8";
+
+/* ========================================
+   COMMUNITY PAGE EXCLUSIVE STYLES
+   교환독서 게시판 라운지 전용 스타일시트
+======================================== */
+
+/* 1. 페이지 테마 아이덴티티: 딥 퍼플 (네비 바는 사이트 공통 네이비 사용) */
+body[data-page="community"] .site-header.is-solid {
+  background: var(--burgundy);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* 게시판 본문 너비: 1140px로 적당히 시원하게 확장 + 상단 헤더 잘림 방지 여백 */
+body[data-page="community"] main {
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 5.5rem; /* 헤더에 제목 가려짐 방지 */
+  padding: 1rem 1.5rem 4rem;
+}
+
+.community-page-title {
+  text-align: center;
+  color: #4A3B5C;
+  margin: 1rem 0 2rem;
+  font-size: 2rem;
+}
+
+/* 2. 상단 고정 공지 배너 */
+.gossip-banner {
+  background: linear-gradient(135deg, #FAF0D9 0%, #F5E5C9 100%);
+  border: 1.5px solid #D4A574;
+  border-radius: 0.9rem;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(43, 23, 19, 0.06);
+}
+
+.gossip-title {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.2rem;
+  color: #7A431D;
+  font-family: 'Nanum Myeongjo', serif;
+  border-bottom: 1px dashed #D4A574;
+  padding-bottom: 0.5rem;
+}
+
+.fixed-notice-item {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(212, 165, 116, 0.4);
+}
+
+.fixed-notice-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(3px);
+}
+
+.fixed-notice-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #7A431D;
+  font-size: 0.95rem;
+}
+
+.toggle-icon {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  color: #7A431D;
+}
+
+.toggle-icon.is-open {
+  transform: rotate(180deg);
+}
+
+.fixed-notice-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding-top: 0;
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.fixed-notice-content.is-open {
+  max-height: 250px;
+  padding-top: 0.75rem;
+}
+
+.fixed-notice-content p {
+  margin: 0.3rem 0;
+}
+
+/* 3. 2열 반응형 그리드 레이아웃 (데스크톱 기준 2 : 1) */
+.community-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+
+@media (min-width: 900px) {
+  .community-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
+
+.community-main-col,
+.community-sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* 패널 공통 */
+.community-panel {
+  padding: 1.6rem;
+  border: 1px solid #D4C5B0;
+  border-radius: 0.9rem;
+  background: var(--paper);
+  box-shadow: 0 4px 16px rgba(43, 23, 19, 0.05);
+}
+
+.section-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #4A3B5C;
+  padding-bottom: 0.6rem;
+}
+
+.section-title-clean {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #4A3B5C;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.section-sub-desc {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.panel-guide-text {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0.4rem 0 1.2rem 0;
+  line-height: 1.5;
+}
+
+/* 4. 문장 & 토론 핀보드 (포스트잇 카드) */
+.discussion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.quote-card {
+  position: relative;
+  background: #FFFDF9;
+  border: 1px solid #D4C5B0;
+  border-radius: 0.7rem;
+  padding: 1.2rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(74, 59, 92, 0.12);
+}
+
+.card-pin {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  font-size: 1rem;
+}
+
+.quote-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.book-badge {
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.card-author {
+  font-weight: 700;
+  color: #4A3B5C;
+}
+
+.quote-card-body {
+  margin: 0 0 1rem 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #2B1713;
+  font-family: 'Nanum Myeongjo', serif;
+  word-break: keep-all;
+}
+
+blockquote.quote-card-body {
+  font-style: italic;
+}
+
+.quote-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.5rem;
+  color: #888;
+}
+
+.card-type-tag {
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.2rem;
+  background: rgba(0, 0, 0, 0.04);
+  font-weight: 600;
+}
+
+.card-type-tag.question-tag {
+  background: rgba(184, 112, 127, 0.15);
+  color: #B8707F;
+}
+
+.tag-book-green { border-top: 4px solid #6D9872; }
+.tag-book-pink { border-top: 4px solid #B8707F; }
+.tag-book-purple { border-top: 4px solid #8B71AC; }
+.tag-book-blue { border-top: 4px solid #5B7A9E; }
+
+/* 5. 자유 이야기 피드 */
+.board-notes {
+  display: grid;
+  gap: 1rem;
+}
+
+.note-item {
+  background: #FFFDF9;
+  border-radius: 8px;
+  padding: 1.15rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  border-left: 4px solid var(--accent);
+  cursor: pointer;
+}
+
+.note-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(74, 59, 92, 0.1);
+}
+
+.note-item.notice {
+  border-left-color: #4A3B5C;
+  background: linear-gradient(135deg, #FFFEF9 0%, #FBF7FE 100%);
+}
+
+.note-item.free {
+  border-left-color: #8B71AC;
+}
+
+.note-item.popular {
+  border-left-color: #D4AF37;
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.note-emoji {
+  font-size: 1.1rem;
+}
+
+.note-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 0.6rem;
+}
+
+.note-meta .author {
+  font-weight: 700;
+  color: #4A3B5C;
+}
+
+.note-preview {
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 6. 서재 한 줄 낙서장 (Doodle Feed) */
+.doodle-panel .section-title-clean {
+  border-bottom: 2px solid #4A3B5C;
+  padding-bottom: 0.5rem;
+}
+
+.doodle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doodle-item {
+  background: #FFFDF9;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  padding: 0.8rem 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.doodle-item:hover {
+  background: #FFFEF9;
+  border-color: #4A3B5C;
+  transform: translateX(2px);
+}
+
+.doodle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.doodle-author {
+  font-weight: 800;
+}
+
+.author-sh { color: #5B7A9E; }
+.author-te { color: #B8707F; }
+.author-hs { color: #6D9872; }
+.author-jw { color: #8B71AC; }
+.author-mj { color: #C84B4B; }
+
+.doodle-time {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.doodle-text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* 7. 오늘의 명언 박스 */
+.quote-panel {
+  text-align: center;
+}
+
+.quote-panel .section-title-clean {
+  border-bottom: 2px solid #4A3B5C;
+  padding-bottom: 0.5rem;
+}
+
+.quote-container {
+  padding: 0.8rem 0.4rem;
+}
+
+.quote-desc {
+  margin: 0 0 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.quote-btn {
+  background: #4A3B5C;
+  border-color: #4A3B5C;
+  color: #FAF0D9;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quote-btn:hover {
+  background: #362B43;
+}
+
+.quote-result-box {
+  margin-top: 1rem;
+}
+
+.quote-display-text {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #2B1713;
+  font-style: italic;
+  font-family: 'Nanum Myeongjo', serif;
+  margin: 0 0 0.6rem 0;
+}
+
+.quote-display-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1.2rem;
+}
+
+.quote-display-meta span {
+  margin-left: 0.4rem;
+}
+
+.re-roll-btn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-color: #4A3B5C;
+  color: #4A3B5C;
+  border-radius: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+}

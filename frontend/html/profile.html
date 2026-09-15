@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>멤버 | 교환독서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+<body class="profile-page">
+
+  <!-- 헤더 (다른 페이지와 동일한 네비게이션) -->
+  <header class="site-header is-solid" id="header">
+    <a href="index.html" class="logo">교환독서</a>
+    <nav aria-label="주요">
+      <ul class="gnb">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="schedule.html">일정</a></li>
+        <li><a href="library.html">도서관</a></li>
+        <li><a href="community.html">게시판</a></li>
+        <li><a aria-current="page" href="profile.html">프로필</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <!-- 상단 타이틀 -->
+    <section class="profile-hero">
+      <p class="profile-subtitle">READERS OF THE CIRCLE</p>
+      <h1 class="profile-title">다섯 사람의 서재</h1>
+      <p class="profile-desc">각자의 결을 지닌 시선들이 모여 하나의 온전한 원을 이룹니다.</p>
+
+      <!-- 5인 멤버 선택 탭 버튼 -->
+      <div class="member-tab-nav">
+        <button class="member-nav-btn active" data-member="sh" style="--btn-color: #5B7A9E;">
+          <span class="nav-seal"></span>시현
+        </button>
+        <button class="member-nav-btn" data-member="te" style="--btn-color: #B8707F;">
+          <span class="nav-seal"></span>태이
+        </button>
+        <button class="member-nav-btn" data-member="hs" style="--btn-color: #6D9872;">
+          <span class="nav-seal"></span>희수
+        </button>
+        <button class="member-nav-btn" data-member="jw" style="--btn-color: #8B71AC;">
+          <span class="nav-seal"></span>지원
+        </button>
+        <button class="member-nav-btn" data-member="mj" style="--btn-color: #C84B4B;">
+          <span class="nav-seal"></span>민지
+        </button>
+      </div>
+    </section>
+
+    <!-- [멤버 1] 시현 프로필 카드 구역 -->
+    <section id="profile-sh" class="member-profile-panel active" style="--theme-color: #5B7A9E;">
+      <div class="profile-card">
+        <div class="profile-left">
+          <div class="profile-avatar-frame">
+            <img src="../images/sh.jpg" alt="시현 프로필" onerror="this.src='../images/five.jpg'" />
+          </div>
+          <span class="theme-tag">MUTE BLUE</span>
+        </div>
+        <div class="profile-right">
+          <div class="profile-header">
+            <h2 class="member-name">시현</h2>
+            <span class="member-role">Reader #01</span>
+          </div>
+          <p class="member-bio">"텍스트 너머에 남겨진 공백과 다정한 여운을 오래도록 곱씹는 사람."</p>
+
+          <div class="taste-tags">
+            <span class="tag">#SF문학</span>
+            <span class="tag">#온기있는_서사</span>
+            <span class="tag">#밑줄_기록</span>
+          </div>
+
+          <div class="shelf-history">
+            <h3 class="history-title">〔 이번 시즌 함께 나눈 책 〕</h3>
+            <ul class="book-mini-list">
+              <li><strong>추천한 책:</strong> 나는 소망한다 내게 금지된 것을, 궤도의 밖에서 나의 옴에게</li>
+              <li><strong>현재 읽는 책:</strong> 나는 소망한다 내게 금지된 것을 (제1회차)</li>
+            </ul>
+          </div>
+
+          <div class="member-quote-box">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">기억은 사라져도 그 자리에 머물렀던 다정한 온기는 끝내 흩어지지 않는다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [멤버 2] 태이 프로필 카드 구역 -->
+    <section id="profile-te" class="member-profile-panel" style="--theme-color: #B8707F;">
+      <div class="profile-card">
+        <div class="profile-left">
+          <div class="profile-avatar-frame">
+            <img src="../images/te.jpg" alt="태이 프로필" onerror="this.src='../images/five.jpg'" />
+          </div>
+          <span class="theme-tag">INDIE PINK</span>
+        </div>
+        <div class="profile-right">
+          <div class="profile-header">
+            <h2 class="member-name">태이</h2>
+            <span class="member-role">Reader #02</span>
+          </div>
+          <p class="member-bio">"문장 속에서 마주하는 작은 위트와 생동감 있는 순간들을 소중히 여깁니다."</p>
+
+          <div class="taste-tags">
+            <span class="tag">#우주_모험</span>
+            <span class="tag">#에세이</span>
+            <span class="tag">#사색의_시간</span>
+          </div>
+
+          <div class="shelf-history">
+            <h3 class="history-title">〔 이번 시즌 함께 나눈 책 〕</h3>
+            <ul class="book-mini-list">
+              <li><strong>추천한 책:</strong> 프로젝트 헤일메리, 다정한 사람이 되는 법</li>
+              <li><strong>현재 읽는 책:</strong> 프로젝트 헤일메리 (제1회차)</li>
+            </ul>
+          </div>
+
+          <div class="member-quote-box">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">고독한 여정일지라도 함께 건너는 이가 있다면 두렵지 않다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [멤버 3] 희수 프로필 카드 구역 -->
+    <section id="profile-hs" class="member-profile-panel" style="--theme-color: #6D9872;">
+      <div class="profile-card">
+        <div class="profile-left">
+          <div class="profile-avatar-frame">
+            <img src="../images/hs.jpg" alt="희수 프로필" onerror="this.src='../images/five.jpg'" />
+          </div>
+          <span class="theme-tag">SAGE GREEN</span>
+        </div>
+        <div class="profile-right">
+          <div class="profile-header">
+            <h2 class="member-name">희수</h2>
+            <span class="member-role">Reader #03</span>
+          </div>
+          <p class="member-bio">"세상을 꿰뚫어 보는 날카로운 질문과 단단한 지식을 사랑합니다."</p>
+
+          <div class="taste-tags">
+            <span class="tag">#인문사회</span>
+            <span class="tag">#토론주제</span>
+            <span class="tag">#질문의_힘</span>
+          </div>
+
+          <div class="shelf-history">
+            <h3 class="history-title">〔 이번 시즌 함께 나눈 책 〕</h3>
+            <ul class="book-mini-list">
+              <li><strong>추천한 책:</strong> 자본주의, 일억 번째 여름</li>
+              <li><strong>현재 읽는 책:</strong> 자본주의 (제1회차)</li>
+            </ul>
+          </div>
+
+          <div class="member-quote-box">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">당연하다고 믿었던 구조를 다시 의심하는 순간 새로운 사유가 열린다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [멤버 4] 지원 프로필 카드 구역 -->
+    <section id="profile-jw" class="member-profile-panel" style="--theme-color: #8B71AC;">
+      <div class="profile-card">
+        <div class="profile-left">
+          <div class="profile-avatar-frame">
+            <img src="../images/jw.jpg" alt="지원 프로필" onerror="this.src='../images/five.jpg'" />
+          </div>
+          <span class="theme-tag">SOFT PURPLE</span>
+        </div>
+        <div class="profile-right">
+          <div class="profile-header">
+            <h2 class="member-name">지원</h2>
+            <span class="member-role">Reader #04</span>
+          </div>
+          <p class="member-bio">"서늘한 문장 틈새로 스며드는 슬픔과 그 속의 연민을 응시합니다."</p>
+
+          <div class="taste-tags">
+            <span class="tag">#한국소설</span>
+            <span class="tag">#섬세한_문체</span>
+            <span class="tag">#계절의_틈</span>
+          </div>
+
+          <div class="shelf-history">
+            <h3 class="history-title">〔 이번 시즌 함께 나눈 책 〕</h3>
+            <ul class="book-mini-list">
+              <li><strong>추천한 책:</strong> 아가미, 바깥은 여름</li>
+              <li><strong>현재 읽는 책:</strong> 아가미 (제1회차)</li>
+            </ul>
+          </div>
+
+          <div class="member-quote-box">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">물속에서 숨을 쉬는 법을 배운 이에게 지상은 늘 서늘한 계절이다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [멤버 5] 민지 프로필 카드 구역 -->
+    <section id="profile-mj" class="member-profile-panel" style="--theme-color: #C84B4B;">
+      <div class="profile-card">
+        <div class="profile-left">
+          <div class="profile-avatar-frame">
+            <img src="../images/mj.jpg" alt="민지 프로필" onerror="this.src='../images/five.jpg'" />
+          </div>
+          <span class="theme-tag">CLASSIC RED</span>
+        </div>
+        <div class="profile-right">
+          <div class="profile-header">
+            <h2 class="member-name">민지</h2>
+            <span class="member-role">Reader #05</span>
+          </div>
+          <p class="member-bio">"잠든 영혼을 깨우는 상상력과 포근하게 안아주는 꿈의 문장을 모읍니다."</p>
+
+          <div class="taste-tags">
+            <span class="tag">#판타지_힐링</span>
+            <span class="tag">#꿈의_기록</span>
+            <span class="tag">#따뜻한_시선</span>
+          </div>
+
+          <div class="shelf-history">
+            <h3 class="history-title">〔 이번 시즌 함께 나눈 책 〕</h3>
+            <ul class="book-mini-list">
+              <li><strong>추천한 책:</strong> 달러구트 꿈 백화점, 지뢰진 글리코</li>
+              <li><strong>현재 읽는 책:</strong> 달러구트 꿈 백화점 (제1회차)</li>
+            </ul>
+          </div>
+
+          <div class="member-quote-box">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">우리가 잠든 사이에 머무는 꿈은 어쩌면 내일의 나를 위한 작은 위로일지도 모른다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 교환독서. All rights reserved.</p>
+  </footer>
+
+  <!-- 탭 전환 스크립트 -->
+  <script>
+    const navBtns = document.querySelectorAll('.member-nav-btn');
+    const panels = document.querySelectorAll('.member-profile-panel');
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navBtns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetId = `profile-${btn.dataset.member}`;
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

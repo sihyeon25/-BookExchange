@@ -10,9 +10,9 @@
   scroll-margin-top: 5.5rem;
 }
 
-/* 2. 일정 페이지 테마 아이덴티티: 딥 슬레이트 블루 */
+/* 2. 일정 페이지 테마 아이덴티티: 딥 슬레이트 블루 (네비 바는 사이트 공통 네버비 사용) */
 body[data-page="schedule"] .site-header.is-solid {
-  background: #2C3E50;
+  background: var(--burgundy);
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
@@ -138,7 +138,7 @@ body[data-page="schedule"] .site-header.is-solid {
 }
 
 .my-book-result .highlight-book-title {
-  color: #5C1A1A;
+  color: var(--burgundy);
   font-size: 1.25rem;
   font-weight: 800;
 }
@@ -253,7 +253,7 @@ body[data-page="schedule"] .site-header.is-solid {
 
 .schedule-table tbody tr.is-highlighted .book-title-cell {
   font-weight: 800;
-  color: #5C1A1A;
+  color: var(--burgundy);
 }
 
 .schedule-table tbody tr.is-dimmed {

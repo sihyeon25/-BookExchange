@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="heritage">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#4A3B5C">
+  <meta name="msapplication-TileColor" content="#4A3B5C">
+  <title>교환독서 – 게시판</title>
+
+  <!-- Google Fonts: Nanum Myeongjo & Grandiflora One -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Grandiflora+One&display=swap" rel="stylesheet">
+
+  <!-- 공통 스타일시트 & 게시판 전용 스타일시트 -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="subpage" data-page="community">
+  <a href="#main" class="sr-only">본문으로 건너뛰기</a>
+
+  <!-- 상단 헤더 -->
+  <header class="site-header is-solid">
+    <a class="logo" href="index.html">교환독서</a>
+    <nav aria-label="주요">
+      <ul class="gnb">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="schedule.html">일정</a></li>
+        <li><a href="library.html">도서관</a></li>
+        <li><a aria-current="page" href="community.html">게시판</a></li>
+        <li><a href="profile.html">프로필</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main id="main">
+    <h1 class="community-page-title">【 게시판 】</h1>
+
+    <!-- 1. 고정 공지 배너 (상단 전폭) -->
+    <section class="gossip-banner" aria-label="고정 공지">
+      <h2 class="gossip-title">📢 고정 공지사항</h2>
+      <div class="gossip-content">
+        <div class="fixed-notice-item" onclick="toggleNotice(this)">
+          <div class="fixed-notice-title">
+            <span>📚 교환독서 서재 이용 안내</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="fixed-notice-content">
+            <p>• 도서관에서는 멤버들이 읽은 책의 상세 정보와 리뷰를 확인하실 수 있습니다.</p>
+            <p>• 일정 페이지에서 내 이름을 누르면 현재 기간에 읽어야 할 책이 즉시 강조됩니다.</p>
+            <p>• 인상 깊은 문장이나 토론 질문은 아래 '문장 & 토론 보드'에 남겨주세요.</p>
+          </div>
+        </div>
+
+        <div class="fixed-notice-item" onclick="toggleNotice(this)">
+          <div class="fixed-notice-title">
+            <span>☕ 모임 진행 시 지켜주실 점</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="fixed-notice-content">
+            <p>• 책을 돌려받을 원래 주인을 위해 책에 밑줄을 긋거나 메모를 남기지 않도록 주의해주세요.</p>
+            <p>• 교환일 전까지 완독이 어려울 경우 단톡방에 미리 공유해주세요!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 입체적 2열 서재 레이아웃 (메인 + 사이드바) -->
+    <div class="community-layout">
+
+      <!-- [좌측 메인 컬럼: 이야기 & 문장·토론 아카이브] -->
+      <div class="community-main-col">
+
+        <!-- (1) 문장 & 토론 발제 핀보드 -->
+        <section class="panel community-panel">
+          <div class="section-title-wrap">
+            <h2 class="section-title-clean">📌 문장 & 토론 발제</h2>
+            <span class="section-sub-desc">책을 읽다 꽂힌 문장과 다음 모임 질문들</span>
+          </div>
+
+          <div class="discussion-grid">
+            <!-- 쪽지 1: 문장 기록 -->
+            <article class="quote-card tag-book-green">
+              <span class="card-pin" aria-hidden="true">📍</span>
+              <div class="quote-card-header">
+                <span class="book-badge">프로젝트 헤일메리</span>
+                <span class="card-author">희수</span>
+              </div>
+              <blockquote class="quote-card-body">
+                "인간은 위기를 마주했을 때 비로소 자신의 진짜 크기를 확인한다."
+              </blockquote>
+              <div class="quote-card-footer">
+                <span class="card-type-tag">인상 깊은 문장</span>
+                <span class="card-date">9월 18일</span>
+              </div>
+            </article>
+
+            <!-- 쪽지 2: 토론 질문 -->
+            <article class="quote-card tag-book-pink is-question">
+              <span class="card-pin" aria-hidden="true">📍</span>
+              <div class="quote-card-header">
+                <span class="book-badge">달러구트 꿈 백화점 0</span>
+                <span class="card-author">태이</span>
+              </div>
+              <p class="quote-card-body">
+                Q. 만약 내가 꾸고 싶은 꿈을 단 하나만 골라서 살 수 있다면, 다들 어떤 꿈을 사고 싶어?
+              </p>
+              <div class="quote-card-footer">
+                <span class="card-type-tag question-tag">모임 토론 발제</span>
+                <span class="card-date">9월 16일</span>
+              </div>
+            </article>
+
+            <!-- 쪽지 3: 문장 기록 -->
+            <article class="quote-card tag-book-purple">
+              <span class="card-pin" aria-hidden="true">📍</span>
+              <div class="quote-card-header">
+                <span class="book-badge">자본주의</span>
+                <span class="card-author">지원</span>
+              </div>
+              <blockquote class="quote-card-body">
+                "돈은 인간을 자유롭게도 하지만, 구조를 모르면 가장 확실하게 얽매이게 만든다."
+              </blockquote>
+              <div class="quote-card-footer">
+                <span class="card-type-tag">인상 깊은 문장</span>
+                <span class="card-date">9월 20일</span>
+              </div>
+            </article>
+
+            <!-- 쪽지 4: 토론 질문 -->
+            <article class="quote-card tag-book-blue is-question">
+              <span class="card-pin" aria-hidden="true">📍</span>
+              <div class="quote-card-header">
+                <span class="book-badge">나는 소망한다 내게 금지된 것을</span>
+                <span class="card-author">시현</span>
+              </div>
+              <p class="quote-card-body">
+                Q. 주인공의 극단적인 선택에 대해 90년대 출간 당시와 지금 2020년대의 우리는 어떻게 다르게 읽을 수 있을까?
+              </p>
+              <div class="quote-card-footer">
+                <span class="card-type-tag question-tag">모임 토론 발제</span>
+                <span class="card-date">9월 22일</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- (2) 자유 이야기 피드 -->
+        <section class="panel community-panel">
+          <div class="section-title-wrap">
+            <h2 class="section-title-clean">💬 자유 이야기</h2>
+            <span class="section-sub-desc">서재 라운지 자유 글</span>
+          </div>
+
+          <div class="board-notes">
+            <div class="note-item notice">
+              <div class="note-header">
+                <span class="note-emoji">🍁</span>
+                <span class="note-title">제3차 교환독서가 시작되었습니다!</span>
+              </div>
+              <div class="note-meta">
+                <span class="author">운영</span>
+                <span class="divider">·</span>
+                <span class="date">9월 15일</span>
+              </div>
+              <div class="note-preview">드디어 5인 완전체로 진행되는 3차 교환독서의 첫 책이 전달되었습니다. 이번 회차도 다들 즐거운 독서 되시길 바랍니다!</div>
+            </div>
+
+            <div class="note-item free popular">
+              <div class="note-header">
+                <span class="note-emoji">🔥</span>
+                <span class="note-title">이번 3차 책들 난이도 어때요?</span>
+              </div>
+              <div class="note-meta">
+                <span class="author">시현</span>
+                <span class="divider">·</span>
+                <span class="stats">💬 12</span>
+                <span class="divider">·</span>
+                <span class="date">방금 전</span>
+              </div>
+              <div class="note-preview">프로젝트 헤일메리 두께 보고 살짝 놀랐는데 초반 흡인력 장난 아니네요... 다들 읽고 계신 책 진도 어떠신가요?</div>
+            </div>
+
+            <div class="note-item free">
+              <div class="note-header">
+                <span class="note-emoji">☕</span>
+                <span class="note-title">다음 교환 모임 장소 추천 받습니다</span>
+              </div>
+              <div class="note-meta">
+                <span class="author">태이</span>
+                <span class="divider">·</span>
+                <span class="stats">💬 8</span>
+                <span class="divider">·</span>
+                <span class="date">3일 전</span>
+              </div>
+              <div class="note-preview">저번에 갔던 북카페도 좋았는데, 이번에는 조용히 이야기 나누기 좋은 룸 있는 카페로 가볼까요?</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- [우측 사이드바: 서재 낙서장 & 명언 카드] -->
+      <aside class="community-sidebar-col">
+
+        <!-- (3) 한 줄 서재 낙서장 (마이크로 감상 톡) -->
+        <section class="panel community-panel doodle-panel">
+          <h2 class="section-title-clean">✏️ 서재 한 줄 낙서장</h2>
+          <p class="panel-guide-text">책 읽다 든 생각이나 근황을 가볍게 남기는 공간</p>
+
+          <div class="doodle-list">
+            <div class="doodle-item">
+              <div class="doodle-header">
+                <span class="doodle-author author-mj">민지</span>
+                <span class="doodle-time">1시간 전</span>
+              </div>
+              <p class="doodle-text">《아가미》 전개 너무 몰입돼서 지하철에서 못 내릴 뻔...</p>
+            </div>
+
+            <div class="doodle-item">
+              <div class="doodle-header">
+                <span class="doodle-author author-jw">지원</span>
+                <span class="doodle-time">3시간 전</span>
+              </div>
+              <p class="doodle-text">자본주의 챕터 2 읽는 중. 경제 기초 잡기에 딱이다 💡</p>
+            </div>
+
+            <div class="doodle-item">
+              <div class="doodle-header">
+                <span class="doodle-author author-hs">희수</span>
+                <span class="doodle-time">어제</span>
+              </div>
+              <p class="doodle-text">헤일메리 로키 귀여워서 벽 부수는 중입니다 ㅠㅠ</p>
+            </div>
+
+            <div class="doodle-item">
+              <div class="doodle-header">
+                <span class="doodle-author author-te">태이</span>
+                <span class="doodle-time">2일 전</span>
+              </div>
+              <p class="doodle-text">달러구트 0 프리퀄이라 그런지 분위기 신비롭고 좋다 몽환적이야</p>
+            </div>
+
+            <div class="doodle-item">
+              <div class="doodle-header">
+                <span class="doodle-author author-sh">시현</span>
+                <span class="doodle-time">3일 전</span>
+              </div>
+              <p class="doodle-text">소망한다 문장력 진짜 압도적... 속도감 있게 읽히는 중!</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- (4) 서재 오늘의 독서 명언 -->
+        <section class="panel community-panel quote-panel">
+          <h2 class="section-title-clean">💭 오늘의 서재 명언</h2>
+          <div class="quote-container">
+            <p id="quoteDescription" class="quote-desc">서재에서 책 속 한 문장을 뽑아보세요.</p>
+            <button type="button" class="btn quote-btn" id="randomQuoteBtn">🎲 문장 뽑기</button>
+            <div id="quoteResult" class="quote-result-box"></div>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <span class="footer-divider">·</span>
+        <a href="https://github.com/sihyeon25/-BookExchange" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-divider">·</span>
+        <a href="mailto:sihyeon25@naver.com">Contact</a>
+      </div>
+      <small>© 2026 교환독서. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- 인터랙션 스크립트 -->
+  <script>
+    function toggleNotice(element) {
+      const content = element.querySelector('.fixed-notice-content');
+      const icon = element.querySelector('.toggle-icon');
+      content.classList.toggle('is-open');
+      icon.classList.toggle('is-open');
+    }
+
+    (() => {
+      const quotes = [
+        { text: "우리는 사랑했던 사람들로 이루어져 있다.", book: "백년의 고독", author: "가브리엘 가르시아 마르케스" },
+        { text: "가장 중요한 것은 눈에 보이지 않아.", book: "어린 왕자", author: "앙투안 드 생텍쥐페리" },
+        { text: "길을 잃는다는 것은 어쩌면 새로운 길을 찾고 있다는 뜻일지도 모른다.", book: "연금술사", author: "파울로 코엘료" },
+        { text: "우리는 모두 조금씩 부서진 채로 살아간다.", book: "위대한 개츠비", author: "F. 스콧 피츠제럴드" },
+        { text: "사람은 기억 속에서 계속 살아간다.", book: "나는 고양이로소이다", author: "나쓰메 소세키" },
+        { text: "누군가를 이해한다는 것은 그 사람의 시간을 이해하는 일이다.", book: "참을 수 없는 존재의 가벼움", author: "밀란 쿤데라" },
+        { text: "끝이라고 느껴질 때, 이야기는 다시 시작된다.", book: "해리 포터와 죽음의 성물", author: "J. K. 롤링" },
+        { text: "진짜 용기는 두려움 속에서도 앞으로 나아가는 것이다.", book: "서부전선 이상 없다", author: "에리히 마리아 레마르크" }
+      ];
+
+      const btn = document.getElementById('randomQuoteBtn');
+      const desc = document.getElementById('quoteDescription');
+      const result = document.getElementById('quoteResult');
+
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const rnd = quotes[Math.floor(Math.random() * quotes.length)];
+        result.innerHTML = `
+          <blockquote class="quote-display-text">"${rnd.text}"</blockquote>
+          <div class="quote-display-meta">
+            <strong>&lt;${rnd.book}&gt;</strong>
+            <span>${rnd.author}</span>
+          </div>
+          <button type="button" class="btn ghost re-roll-btn" onclick="document.getElementById('randomQuoteBtn').click()">🔄 다른 문장</button>
+        `;
+        btn.style.display = 'none';
+        desc.style.display = 'none';
+      });
+    })();
+  </script>
+  <script src="../js/page-transitions.js"></script>
+</body>
+</html>

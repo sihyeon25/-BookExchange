@@ -1,335 +1,305 @@
-/* 도서관 전용 스타일 */
-.library-page {
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  scrollbar-width: none; /* Firefox: 스크롤바 숨김 */
+  -ms-overflow-style: none; /* 구형 Edge/IE */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge(Chromium) */
+}
+
+body.library-body {
+  /* 메인 페이지와 통일된 크림 종이 배경 + 은은한 텍스처 */
   background-color: #FAF0D9;
-  color: #2F241E;
-}
-
-.library-container {
-  min-height: calc(100vh - 120px);
-}
-
-/* 상단 타이틀 & 탭 영역 */
-.library-hero {
-  text-align: center;
-  padding: 130px 20px 30px;
-}
-
-.library-subtitle {
-  font-family: 'Grandiflora One', serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.3em;
-  color: #8C4843;
-  margin-bottom: 6px;
-}
-
-.library-title {
+  background-image: radial-gradient(rgba(66, 39, 1, 0.08) 0.7px, transparent 0.7px);
+  background-size: 24px 24px;
+  color: #2B1713;
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 2.3rem;
+  min-height: 100vh;
+}
+
+/* 플로팅 아일랜드 네비게이션: 다른 색이 비쳤 보이지 않도록 완전 불투명 */
+.floating-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #422701;
+  padding: 10px 26px;
+  border-radius: 40px;
+  border: 1px solid #705E46;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.nav-logo {
+  font-family: 'Nanum Myeongjo', serif;
   font-weight: 800;
-  color: #3D1111;
-  margin-bottom: 10px;
+  color: #D6B588;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
 }
 
-.library-desc {
-  font-family: 'Nanum Myeongjo', serif;
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #C6C0B9;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #D6B588;
+}
+
+/* 서재 헤더 */
+.library-wrap {
+  padding: 120px 20px 80px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.library-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.lib-sub {
+  font-family: 'Grandiflora One', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: #705E46;
+}
+
+.lib-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #422701;
+  margin: 6px 0 8px;
+}
+
+.lib-desc {
   font-size: 0.95rem;
-  color: #6C5B52;
-  margin-bottom: 35px;
-  word-break: keep-all;
+  color: #705E46;
+  margin-bottom: 28px;
 }
 
-/* 탭 전환 버튼 */
+/* 탭 버튼 */
 .shelf-tabs {
   display: inline-flex;
-  gap: 12px;
-  background-color: #EBDDC1;
+  gap: 10px;
+  background: #D6B588;
   padding: 6px;
   border-radius: 30px;
-  box-shadow: inset 0 2px 4px rgba(47, 36, 30, 0.12);
+  margin-bottom: 24px;
 }
 
-.shelf-tab-btn {
+.tab-btn {
   border: none;
-  background: none;
+  background: transparent;
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  padding: 10px 22px;
-  border-radius: 24px;
-  color: #6C5B52;
+  color: #422701;
+  padding: 8px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  transition: all 0.25s;
 }
 
-.shelf-tab-btn.active {
-  background-color: #5C1A1A;
-  color: #FFFFFF;
-  box-shadow: 0 4px 10px rgba(92, 26, 26, 0.3);
+.tab-btn.active {
+  background: #422701;
+  color: #D6B588;
+  box-shadow: 0 4px 12px rgba(66, 39, 1, 0.3);
 }
 
-/* 검색 & 필터 바 */
-.search-filter-bar {
+/* 필터 바 */
+.filter-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
   justify-content: center;
-  align-items: center;
-  max-width: 700px;
-  margin: 20px auto 0;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.search-box {
-  position: relative;
-  flex: 1 1 260px;
-}
-
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.9rem;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-#book-search-input {
-  width: 100%;
-  padding: 10px 14px 10px 36px;
-  border: 1px solid rgba(92, 26, 26, 0.2);
-  border-radius: 24px;
+.search-wrap input,
+.filter-row select {
+  border: 1px solid #705E46;
+  background: #FFFDF8;
+  padding: 8px 16px;
+  border-radius: 20px;
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 0.9rem;
-  background: #FFFEF9;
-  color: #2F241E;
-}
-
-#book-search-input:focus {
+  font-size: 0.88rem;
+  color: #422701;
   outline: none;
-  border-color: #5C1A1A;
 }
 
-.filter-group {
-  display: flex;
-  gap: 8px;
-}
+.search-wrap input { width: 240px; }
 
-.custom-select {
-  padding: 10px 14px;
-  border: 1px solid rgba(92, 26, 26, 0.2);
-  border-radius: 24px;
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 0.85rem;
-  background: #FFFEF9;
-  color: #2F241E;
-  cursor: pointer;
-}
+/* 책장 패널 */
+.shelf-panel { display: none; }
+.shelf-panel.active { display: block; animation: fadeIn 0.4s ease; }
 
-/* 검색 결과 없음 안내 */
-.no-result-msg {
-  text-align: center;
-  padding: 60px 20px;
-  font-family: 'Nanum Myeongjo', serif;
-  color: #6C5B52;
-  font-size: 0.95rem;
-}
-
-/* 서가 패널 숨김/표시 */
-.shelf-panel {
-  display: none;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px 100px;
-}
-
-.shelf-panel.active {
-  display: block;
-  animation: fadeInShelf 0.4s ease forwards;
-}
-
-@keyframes fadeInShelf {
+@keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 책장 랙 */
-.shelf-rack {
+.shelf-stage {
   position: relative;
-  padding-top: 180px; /* 마우스 올렸을 때 책이 솟아오를 수 있는 여백 */
-  margin: 0 auto;
+  padding-top: 150px;
 }
 
-/* 책들이 서 있는 가로 열 */
-.spine-row {
+.book-rack {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
-  padding: 0 20px;
+  position: relative;
   z-index: 2;
-  position: relative;
+  margin-bottom: -3px;
 }
 
-/* 책 1권 컨테이너 (링크) */
-.standing-book {
+/* 개별 책 */
+.book-item {
   text-decoration: none;
-  display: block;
   perspective: 1000px;
-  position: relative;
-  margin-bottom: -4px; /* 선반에 밀착 */
+  display: block;
 }
 
-/* 책 플리퍼 (애니메이션 래퍼) */
 .book-flipper {
   position: relative;
-  width: 60px; /* 평소 책등 두께 */
-  height: 280px; /* 책 높이 */
+  width: 58px;
+  height: 280px;
   transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   transform-style: preserve-3d;
 }
 
-/* 평소: 책등 (Spine), 표지에서 뽑은 색은 상단 띠(accent)에만 사용 */
-.book-spine {
+/* 책등 (Spine): 그림자만 얷은 혹보드 없이 각 책의 고유 색이 선명하게 보이도록 */
+.spine {
   position: absolute;
   inset: 0;
-  background-color: #5C1A1A;
+  background-color: var(--spine-color, #705E46);
   border-radius: 4px 2px 2px 4px;
-  box-shadow: inset 3px 0 6px rgba(255, 255, 255, 0.25),
-              inset -4px 0 6px rgba(0, 0, 0, 0.4),
-              -4px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.15),
+              2px 4px 8px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 8px;
+  padding: 16px 6px 14px;
   color: #FFF;
-  cursor: pointer;
 }
 
-/* 표지에서 추출한 색을 보여주는 상단 띠 */
-.spine-top-accent {
-  width: 100%;
-  height: 8px;
+.spine-line {
+  width: 22px;
+  height: 3px;
+  background: #D6B588;
   border-radius: 2px;
-  background-color: var(--spine-color, #5C1A1A);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0;
 }
 
-.spine-title {
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 0.95rem;
+.spine-text {
+  writing-mode: vertical-rl;
+  font-size: 0.9rem;
   font-weight: 700;
-  writing-mode: vertical-rl; /* 세로 쓰기 */
-  letter-spacing: 0.18em;
-  text-orientation: mixed;
+  letter-spacing: 0.16em;
+  max-height: 185px;
+  overflow: hidden;
+  /* 밝은 표지색 위에서도 흰 글자가 묻히지 않도록 */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* 도서관 청구번호 항목을 닮은 라벨 */
-.spine-call-no {
-  font-size: 0.68rem;
-  opacity: 0.75;
-  letter-spacing: 0.05em;
+.spine-call {
+  font-family: monospace;
+  font-size: 0.65rem;
+  background: #D6B588;
+  color: #422701;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 800;
 }
 
-/* 마우스 올렸을 때 나타나는 앞표지 (Front Cover) */
-.book-front-cover {
+/* 표지 (Cover) */
+.cover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 190px; /* 펼쳐졌을 때 표지 너비 */
+  width: 190px;
   height: 280px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: -8px 12px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: -10px 14px 28px rgba(66, 39, 1, 0.45);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  background: #D6B588;
 }
 
-.book-front-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cover-overlay {
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(30, 20, 15, 0.85) 100%);
+  background: linear-gradient(180deg, transparent 65%, rgba(66, 39, 1, 0.9) 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 14px;
-}
-
-.cover-hint {
-  color: #FAF0D9;
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 0.82rem;
+  padding-bottom: 12px;
+  color: #D6B588;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
-/* ★ 마우스 호버(Hover) 효과: 위로 쑥 올라오며 표지가 보임 */
-.standing-book:hover {
-  z-index: 10;
+/* 호버 시 모션 */
+.book-item:hover { z-index: 10; }
+.book-item:hover .book-flipper {
+  width: 190px;
+  transform: translateY(-50px) rotate(-1.5deg);
 }
+.book-item:hover .spine { opacity: 0; }
+.book-item:hover .cover { opacity: 1; pointer-events: auto; }
 
-.standing-book:hover .book-flipper {
-  width: 190px; /* 표지 너비만큼 확장 */
-  transform: translateY(-50px); /* 위로 쏙 솟아오름 */
-}
-
-.standing-book:hover .book-spine {
-  opacity: 0;
-}
-
-.standing-book:hover .book-front-cover {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* 원목 선반 그래픽 */
-.wood-board {
-  position: relative;
-  width: 100%;
-  height: 22px;
-  background: linear-gradient(180deg, #845A38 0%, #4D3320 100%);
+/* 원목 선반 바닥 */
+.wood-shelf {
+  height: 24px;
+  background: linear-gradient(180deg, #705E46 0%, #422701 100%);
   border-radius: 3px;
-  box-shadow: 0 12px 20px rgba(47, 36, 30, 0.35);
+  box-shadow: 0 14px 24px rgba(66, 39, 1, 0.4);
+  position: relative;
 }
 
-.wood-board::before {
+.wood-shelf::before {
   content: "";
   position: absolute;
   top: -5px;
   left: 0;
   right: 0;
   height: 5px;
-  background: #A06F48;
-  border-radius: 2px 2px 0 0;
+  background: #D6B588;
 }
 
-/* 모바일 반응형 */
-@media (max-width: 650px) {
-  .spine-row {
-    gap: 12px;
-  }
-  .book-flipper {
-    width: 48px;
-    height: 240px;
-  }
-  .standing-book:hover .book-flipper {
-    width: 160px;
-    transform: translateY(-30px);
-  }
-  .book-front-cover {
-    width: 160px;
-    height: 240px;
-  }
+.no-result {
+  text-align: center;
+  padding: 50px;
+  color: #705E46;
 }
+
+@media (max-width: 600px) {
+  .floating-nav { width: 92%; justify-content: space-between; padding: 10px 18px; }
+  .book-flipper { width: 46px; height: 230px; }
+  .book-item:hover .book-flipper { width: 155px; transform: translateY(-30px); }
+  .cover { width: 155px; height: 230px; }
+}
+
