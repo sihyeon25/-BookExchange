@@ -212,14 +212,20 @@ body.library-body {
 }
 
 .spine-text {
-  writing-mode: vertical-rl;
+  /* 세로쓰기 줄이 여러 줄일 때 왼쪽부터 오른쪽으로 읽히도록 */
+  writing-mode: vertical-lr;
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   max-height: 185px;
   overflow: hidden;
-  /* 밝은 표지색 위에서도 흰 글자가 묻히지 않도록 */
+  /* 밝은 표지색 위에서도 흔 글자가 묻히지 않도록 */
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 숫자만 따로 묶어 90도 회전 없이 똑바로 보이게 함 (단어 간격은 유지) */
+.spine-text .num-upright {
+  text-combine-upright: all;
 }
 
 .spine-call {

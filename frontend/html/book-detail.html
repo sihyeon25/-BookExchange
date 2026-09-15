@@ -38,7 +38,7 @@
         </div>
 
         <h1 class="book-title" id="detailTitle">도서 정보를 찾을 수 없습니다</h1>
-        <p class="book-author-pub"><span id="detailAuthor"></span> 지음</p>
+        <p class="book-author-pub"><span id="detailAuthor"></span> 지음<span id="detailPubMeta" class="pub-meta"></span></p>
 
         <!-- 별점 총점 요약 -->
         <div class="rating-summary-compact">
@@ -137,42 +137,42 @@
 
     // 도서관 서가(library.html)와 동일한 12권 데이터
     const BOOKS = {
-      c1: { title: '나는 소망한다 내게 금지된 것을', author: '양귀자', member: '시현', genre: '소설/문학', call: 'SH-01', cover: '나는 소망한다 내게서..._양귀자.jpg', status: '읽는 중',
-        desc: '1990년대 한국 사회를 뒤흔들었던 화제작. 스스로 부여한 규범과 사회적 금기 속에서 주체적인 자아를 찾아 나서는 한 여성의 치열하고 도발적인 여정을 그린 장편소설.',
-        comment: '금기 너머의 목소리를 함께 고민해보고 싶어 추천합니다.' },
-      c2: { title: '프로젝트 헤일메리', author: '앤디 위어', member: '태이', genre: 'SF/판타지', call: 'TE-01', cover: '프로젝트 헤일메리_엔디 위어.jpg', status: '읽는 중',
-        desc: '인류의 운명을 짊어진 채 홀로 우주선에서 깨어난 한 과학교사가, 예상치 못한 존재와 협력하며 답을 찾아가는 유쾌하고 뭉클한 SF 모험담.',
-        comment: '고독한 우주에서도 유머를 잃지 않는 주인공이 좋아서 추천해요.' },
-      c3: { title: '자본주의', author: 'EBS', member: '희수', genre: '인문/교양', call: 'HS-01', cover: '자본주의_EBS.jpg', status: '읽는 중',
-        desc: 'EBS 다큐멘터리를 책으로 엮어, 소비와 부채로 움직이는 자본주의 경제의 원리를 쉽고 친절하게 풀어낸 교양서.',
-        comment: '우리가 당연하게 여기던 경제 구조를 다시 생각해보게 만드는 책이에요.' },
-      c4: { title: '아가미', author: '구병모', member: '지원', genre: '소설/문학', call: 'JW-01', cover: '아가미_구병모.png', status: '읽는 중',
-        desc: '물속에서 숨 쉴 수 있는 몸을 갖고 태어난 소년이 인간 사회의 경계에서 살아가는 이야기를 서늘하고 섬세한 문장으로 그린 소설.',
-        comment: '서늘하지만 아름다운 문장이 오래 남는 소설이라 추천합니다.' },
-      c5: { title: '달러구트 꿈 백화점', author: '이미예', member: '민지', genre: '소설/문학', call: 'MJ-01', cover: '달러구트 꿈 백화점 0_이미예.jpg', status: '읽는 중',
-        desc: '잠든 사이에만 열리는 신비한 백화점에서 손님들에게 꼭 맞는 꿈을 파는 이들의 따뜻하고 몽환적인 이야기.',
-        comment: '잠들기 전 읽으면 마음이 몽글몽글해지는 이야기라 추천해요.' },
-      d1: { title: '지뢰진 글리코', author: '아오사키 유고', member: '민지', genre: '소설/문학', call: 'MJ-02', cover: '고지뢰글리코__아오사키유고.jpg', status: '완독',
-        desc: '글리코 게임을 건 의뭉스러운 내기에서 출발해 도쿄 곳곳을 무대로 펼쳐지는 유쾌하고 지적인 미스터리.',
-        comment: '머리를 굴리게 만드는 유쾌한 미스터리라 다들 좋아하실 거예요.' },
-      d2: { title: '궤도의 밖에서 나의 옴에게', author: '전삼혜', member: '시현', genre: 'SF/판타지', call: 'SH-02', cover: '궤도의 밖에서..._전삼혜.jpeg', status: '완독',
-        desc: '낯선 룸메이트와 함께 지내며 서로 다른 궤도를 그리던 두 사람이 우정을 발견해가는 청소년 SF.',
-        comment: '낯선 사이가 친구가 되어가는 과정이 따뜻해서 추천했어요.' },
-      d3: { title: '다정한 사람이 되는 법', author: '이해인', member: '태이', genre: '에세이', call: 'TE-02', cover: '다정한 사람이..._이해인.jpg', status: '완독',
-        desc: '다정함이야말로 가장 단단한 삶의 태도임을 이야기하는 잔잔하고 위로가 되는 에세이.',
-        comment: '지치는 날 펼치면 위로가 되는 문장들이 가득해요.' },
-      d4: { title: '바깥은 여름', author: '김애란', member: '지원', genre: '소설/문학', call: 'JW-02', cover: '바깥은 여름_김애란.jpeg', status: '완독',
-        desc: '안과 밖의 경계에서 서성이는 이들의 시선을 통해 상실과 그리움을 섬세하게 담아낸 단편집.',
-        comment: '계절의 틈새를 포착하는 문장이 인상 깊어서 골랐어요.' },
-      d5: { title: '일억 번째 여름', author: '청예', member: '희수', genre: '소설/문학', call: 'HS-02', cover: '일억 번째 여름_청예.jpg', status: '완독',
-        desc: '같은 계절을 몇 번이고 다시 살아가는 인물들을 통해 사랑과 인연의 의미를 되짚는 소설.',
-        comment: '같은 여름을 반복하며 성장하는 이야기가 뭉클해요.' },
-      d6: { title: '지구 끝의 온실', author: '김초엽', member: '시현', genre: 'SF/판타지', call: 'SH-03', cover: '지구 끝의 온실_김초엽.jpg', status: '완독',
-        desc: '멸망 이후의 세계에서 다시 피어난 생명과 기억을 좇는 서정적인 SF 장편.',
-        comment: '폐허 속에서도 다시 피는 생명력이 위로가 되는 책이에요.' },
-      d7: { title: '여름', author: '이디스 워튼', member: '태이', genre: '소설/문학', call: 'TE-03', cover: '여름_이디스워튼.jpg', status: '완독',
-        desc: '한 시골 마을 소녀가 짧고 강렬한 한 계절의 사랑을 통해 자신을 발견해가는 고전 소설.',
-        comment: '짧지만 강렬한 한 계절의 이야기, 고전의 힘을 느낄 수 있어요.' }
+      c1: { title: '나는 소망한다 내게 금지된 것을', author: '양귀자', member: '시현', genre: '한국소설', call: 'SH-03', cover: '나는 소망한다 내게서..._양귀자.jpg', status: '읽는 중',
+        publisher: '쓰다', year: '2019', pages: '368쪽',
+        desc: '1990년대 한국 사회를 뒤흔들었던 화제작. 스스로 부여한 규범과 사회적 금기 속에서 주체적인 자아를 찾아 나서는 한 여성의 치열하고 도발적인 여정을 그린 장편소설.' },
+      c2: { title: '프로젝트 헤일메리', author: '앤디 위어', member: '희수', genre: 'SF/과학소설', call: 'HS-03', cover: '프로젝트 헤일메리_엔디 위어.jpg', status: '읽는 중',
+        publisher: '알에이치코리아', year: '2021', pages: '692쪽',
+        desc: '인류의 운명을 짊어진 채 홀로 우주선에서 깨어난 한 과학교사가, 예상치 못한 존재와 협력하며 답을 찾아가는 유쾌하고 뭉클한 SF 모험담.' },
+      c3: { title: '자본주의', author: 'EBS 자본주의 제작팀', member: '지원', genre: '경제이론', call: 'JW-02', cover: '자본주의_EBS.jpg', status: '읽는 중',
+        publisher: '가나출판', year: '2013', pages: '388쪽',
+        desc: 'EBS 다큐멘터리를 책으로 엮어, 소비와 부채로 움직이는 자본주의 경제의 원리를 쉽고 친절하게 풀어낸 교양서.' },
+      c4: { title: '아가미', author: '구병모', member: '민지', genre: '한국소설', call: 'MJ-01', cover: '아가미_구병모.png', status: '읽는 중',
+        publisher: '위즈덤하우스', year: '2018', pages: '220쪽',
+        desc: '물속에서 숨 쉴 수 있는 몸을 갖고 태어난 소년이 인간 사회의 경계에서 살아가는 이야기를 서늘하고 섬세한 문장으로 그린 소설.' },
+      c5: { title: '달러구트 꿈 백화점 0', author: '이미예', member: '태이', genre: '한국소설', call: 'TE-03', cover: '달러구트 꿈 백화점 0_이미예.jpg', status: '읽는 중',
+        publisher: '팩토리나인', year: '2026', pages: '300쪽',
+        desc: '잠든 사이에만 열리는 신비한 백화점에서 손님들에게 꼭 맞는 꿈을 파는 이들의 따뜻하고 몽환적인 이야기.' },
+      d1: { title: '지뢰 글리코', author: '아오사키 유고', member: '태이', genre: '미스터리', call: 'TE-02', cover: '고지뢰글리코__아오사키유고.jpg', status: '완독',
+        publisher: '리드비', year: '2025', pages: '344쪽',
+        desc: '고등학생들이 치밀한 논리전으로 펼치는 게임식 미스터리. 두뇌전과 반전이 돋보이는 청춘 추리소설.' },
+      d2: { title: '궤도의 밖에서, 나의 룸메이트에게', author: '전삼혜', member: '희수', genre: '한국소설', call: 'HS-02', cover: '궤도의 밖에서..._전삼혜.jpeg', status: '완독',
+        publisher: '문학동네', year: '2023', pages: '392쪽',
+        desc: '사회의 궤도 밖으로 밀려난 청소년들이 서로를 구하고 사랑하며 연대하는 이야기. 퀴어 감성과 SF적 상상력이 결합된 성장소설.' },
+      d3: { title: '다정한 사람이 이긴다', author: '이해인', member: '지원', genre: '에세이', call: 'JW-01', cover: '다정한 사람이..._이해인.jpg', status: '완독',
+        publisher: '필름(Feelm)', year: '2025', pages: '256쪽',
+        desc: "'다정함'이 관계와 사회를 변화시키는 힘임을 이야기하는 심리 에세이. 인간관계의 본질과 회복을 다룸." },
+      d4: { title: '바깥은 여름', author: '김애란', member: '시현', genre: '한국단편소설', call: 'SH-02', cover: '바깥은 여름_김애란.jpeg', status: '완독',
+        publisher: '문학동네', year: '2017', pages: '272쪽',
+        desc: '상실을 경험한 인물들이 관계와 시간 속에서 애도의 의미를 찾아가는 일곱 편의 단편 모음집.' },
+      d5: { title: '일억 번째 여름', author: '청예', member: '희수', genre: '청소년소설', call: 'HS-01', cover: '일억 번째 여름_청예.jpg', status: '완독',
+        publisher: '창비', year: '2025', pages: '332쪽',
+        desc: '“일억 번째 여름이 오면 한 종족이 멸망한다”는 예언에서 출발해 사랑과 구원의 서사를 그린 청소년 판타지.' },
+      d6: { title: '지구 끝의 온실', author: '김초엽', member: '태이', genre: '한국소설', call: 'TE-01', cover: '지구 끝의 온실_김초엽.jpg', status: '완독',
+        publisher: '자이언트북스', year: '2021', pages: '308쪽',
+        desc: '더스트로 황폐해진 지구에서 식물학자 아영과 생존 공동체의 이야기를 통해 생명과 연대, 회복을 다룬 한국 SF 장편.' },
+      d7: { title: '여름', author: '이디스 워튼', member: '시현', genre: '고전문학', call: 'SH-01', cover: '여름_이디스워튼.jpg', status: '완독',
+        publisher: '민음사', year: '2022', pages: '268쪽',
+        desc: '한 시골 마을 소녀가 짧고 강렬한 한 계절의 사랑을 통해 자신을 발견해가는 고전 소설.' }
     };
 
     // 세션 동안만 유지되는 리뷰/메모 (백엔드 연동 전까지는 새로고침하면 초기화됩니다)
@@ -196,6 +196,10 @@
       document.getElementById('detailTitle').textContent = book.title;
       document.getElementById('detailAuthor').textContent = book.author;
       document.getElementById('detailDesc').textContent = book.desc;
+
+      // 출판사/출판년도/페이지 수는 확인된 책만 표시
+      const pubParts = [book.publisher, book.year, book.pages].filter(Boolean);
+      document.getElementById('detailPubMeta').textContent = pubParts.length ? ` · ${pubParts.join(' · ')}` : '';
     }
 
     function switchDetailTab(tabName, btn) {

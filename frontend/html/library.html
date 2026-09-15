@@ -30,8 +30,8 @@
       <p class="lib-desc">책장에 꽂힌 책에 손을 얹어보세요. 머물렀던 흔적들이 책장을 열어줍니다.</p>
 
       <div class="shelf-tabs">
-        <button class="tab-btn active" onclick="switchTab('current', this)">📖 지금 읽는 중 (5)</button>
-        <button class="tab-btn" onclick="switchTab('completed', this)">📚 완독한 서가 (7)</button>
+        <button class="tab-btn active" data-tab="current" onclick="switchTab('current', this)">📖 지금 읽는 중 (5)</button>
+        <button class="tab-btn" data-tab="completed" onclick="switchTab('completed', this)">📚 완독한 서가 (7)</button>
       </div>
 
       <div class="filter-row">
@@ -62,32 +62,32 @@
         <div class="book-rack">
           <a href="book-detail.html?id=c1" class="book-item" data-title="나는 소망한다 내게 금지된 것을" data-author="양귀자" data-member="시현" data-genre="소설" style="--spine-color: #EFEFEB;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">나는 소망한다 내게 금지된 것을</span><span class="spine-call">SH-01</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">나는 소망한다 내게 금지된 것을</span><span class="spine-call">SH-03</span></div>
               <div class="cover"><img src="../images/BOOK/나는 소망한다 내게서..._양귀자.jpg" alt="표지" onerror="this.src='../images/five.jpg'" /><div class="overlay">자세히 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=c2" class="book-item" data-title="프로젝트 헤일메리" data-author="앵디 위어" data-member="태이" data-genre="SF" style="--spine-color: #1B267B;">
+          <a href="book-detail.html?id=c5" class="book-item" data-title="달러구트 꿈 백화점 0" data-author="이미예" data-member="태이" data-genre="소설" style="--spine-color: #9CC2AB;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">프로젝트 헤일메리</span><span class="spine-call">TE-01</span></div>
-              <div class="cover"><img src="../images/BOOK/프로젝트 헤일메리_엔디 위어.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">달러구트 꿈 백화점 <span class="num-upright">0</span></span><span class="spine-call">TE-03</span></div>
+              <div class="cover"><img src="../images/BOOK/달러구트 꿈 백화점 0_이미예.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=c3" class="book-item" data-title="자본주의" data-author="EBS" data-member="희수" data-genre="인문" style="--spine-color: #F4C300;">
+          <a href="book-detail.html?id=c4" class="book-item" data-title="아가미" data-author="구병모" data-member="민지" data-genre="소설" style="--spine-color: #4F8CAE;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">자본주의</span><span class="spine-call">HS-01</span></div>
-              <div class="cover"><img src="../images/BOOK/자본주의_EBS.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
-            </div>
-          </a>
-          <a href="book-detail.html?id=c4" class="book-item" data-title="아가미" data-author="구병모" data-member="지원" data-genre="소설" style="--spine-color: #4F8CAE;">
-            <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">아가미</span><span class="spine-call">JW-01</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">아가미</span><span class="spine-call">MJ-01</span></div>
               <div class="cover"><img src="../images/BOOK/아가미_구병모.png" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=c5" class="book-item" data-title="달러구트 꿈 백화점" data-author="이미예" data-member="민지" data-genre="소설" style="--spine-color: #9CC2AB;">
+          <a href="book-detail.html?id=c3" class="book-item" data-title="자본주의" data-author="EBS 자본주의 제작팀" data-member="지원" data-genre="인문" style="--spine-color: #F4C300;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">달러구트 꿈 백화점</span><span class="spine-call">MJ-01</span></div>
-              <div class="cover"><img src="../images/BOOK/달러구트 꿈 백화점 0_이미예.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">자본주의</span><span class="spine-call">JW-02</span></div>
+              <div class="cover"><img src="../images/BOOK/자본주의_EBS.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
+            </div>
+          </a>
+          <a href="book-detail.html?id=c2" class="book-item" data-title="프로젝트 헤일메리" data-author="앤디 위어" data-member="희수" data-genre="SF" style="--spine-color: #1B267B;">
+            <div class="book-flipper">
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">프로젝트 헤일메리</span><span class="spine-call">HS-03</span></div>
+              <div class="cover"><img src="../images/BOOK/프로젝트 헤일메리_엔디 위어.jpg" alt="표지" /><div class="overlay">자세히 보기 ➔</div></div>
             </div>
           </a>
         </div>
@@ -99,46 +99,46 @@
     <section id="shelf-completed" class="shelf-panel">
       <div class="shelf-stage">
         <div class="book-rack">
-          <a href="book-detail.html?id=d1" class="book-item" data-title="지뢰진 글리코" data-author="" data-member="민지" data-genre="소설" style="--spine-color: #05DC2C;">
+          <a href="book-detail.html?id=d2" class="book-item" data-title="궤도의 밖에서, 나의 룸메이트에게" data-author="전삼혜" data-member="희수" data-genre="SF" style="--spine-color: #8B8C93;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">지뢰진 글리코</span><span class="spine-call">MJ-02</span></div>
-              <div class="cover"><img src="../images/BOOK/고지뢰글리코__아오사키유고.jpg" alt="표지" onerror="this.src='../images/five.jpg'" /><div class="overlay">기록 보기 ➔</div></div>
-            </div>
-          </a>
-          <a href="book-detail.html?id=d2" class="book-item" data-title="굤도의 밖에서 나의 옴에게" data-author="" data-member="시현" data-genre="SF" style="--spine-color: #8B8C93;">
-            <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">궤도의 밖에서 나의 옴에게</span><span class="spine-call">SH-02</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">궤도의 밖에서, 나의 룸메이트에게</span><span class="spine-call">HS-02</span></div>
               <div class="cover"><img src="../images/BOOK/궤도의 밖에서..._전삼혜.jpeg" alt="표지" onerror="this.src='../images/five.jpg'" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=d3" class="book-item" data-title="다정한 사람이 되는 법" data-author="" data-member="태이" data-genre="에세이" style="--spine-color: #582329;">
+          <a href="book-detail.html?id=d3" class="book-item" data-title="다정한 사람이 이긴다" data-author="이해인" data-member="지원" data-genre="에세이" style="--spine-color: #582329;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">다정한 사람이 되는 법</span><span class="spine-call">TE-02</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">다정한 사람이 이긴다</span><span class="spine-call">JW-01</span></div>
               <div class="cover"><img src="../images/BOOK/다정한 사람이..._이해인.jpg" alt="표지" onerror="this.src='../images/five.jpg'" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=d4" class="book-item" data-title="바까은 여름" data-author="김애란" data-member="지원" data-genre="소설" style="--spine-color: #42A5CA;">
+          <a href="book-detail.html?id=d4" class="book-item" data-title="바깥은 여름" data-author="김애란" data-member="시현" data-genre="소설" style="--spine-color: #42A5CA;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">바깥은 여름</span><span class="spine-call">JW-02</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">바깥은 여름</span><span class="spine-call">SH-02</span></div>
               <div class="cover"><img src="../images/BOOK/바깥은 여름_김애란.jpeg" alt="표지" /><div class="overlay">기록 보기 ➔</div></div>
+            </div>
+          </a>
+          <a href="book-detail.html?id=d7" class="book-item" data-title="여름" data-author="이디스 워튼" data-member="시현" data-genre="소설" style="--spine-color: #25A769;">
+            <div class="book-flipper">
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">여름</span><span class="spine-call">SH-01</span></div>
+              <div class="cover"><img src="../images/BOOK/여름_이디스워튼.jpg" alt="표지" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
           <a href="book-detail.html?id=d5" class="book-item" data-title="일억 번째 여름" data-author="청예" data-member="희수" data-genre="소설" style="--spine-color: #00764D;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">일억 번째 여름</span><span class="spine-call">HS-02</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">일억 번째 여름</span><span class="spine-call">HS-01</span></div>
               <div class="cover"><img src="../images/BOOK/일억 번째 여름_청예.jpg" alt="표지" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=d6" class="book-item" data-title="지구 끝의 온실" data-author="김초엽" data-member="시현" data-genre="SF" style="--spine-color: #D87A84;">
+          <a href="book-detail.html?id=d6" class="book-item" data-title="지구 끝의 온실" data-author="김초엽" data-member="태이" data-genre="SF" style="--spine-color: #D87A84;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">지구 끝의 온실</span><span class="spine-call">SH-03</span></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">지구 끝의 온실</span><span class="spine-call">TE-01</span></div>
               <div class="cover"><img src="../images/BOOK/지구 끝의 온실_김초엽.jpg" alt="표지" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
-          <a href="book-detail.html?id=d7" class="book-item" data-title="여름" data-author="이디스 워퉵" data-member="태이" data-genre="소설" style="--spine-color: #25A769;">
+          <a href="book-detail.html?id=d1" class="book-item" data-title="지뢰 글리코" data-author="아오사키 유고" data-member="태이" data-genre="소설" style="--spine-color: #05DC2C;">
             <div class="book-flipper">
-              <div class="spine"><div class="spine-line"></div><span class="spine-text">여름</span><span class="spine-call">TE-03</span></div>
-              <div class="cover"><img src="../images/BOOK/여름_이디스워튼.jpg" alt="표지" /><div class="overlay">기록 보기 ➔</div></div>
+              <div class="spine"><div class="spine-line"></div><span class="spine-text">지뢰 글리코</span><span class="spine-call">TE-02</span></div>
+              <div class="cover"><img src="../images/BOOK/고지뢰글리코__아오사키유고.jpg" alt="표지" onerror="this.src='../images/five.jpg'" /><div class="overlay">기록 보기 ➔</div></div>
             </div>
           </a>
         </div>
@@ -150,13 +150,24 @@
   </main>
 
   <script>
-    let currentTab = 'current';
+    // 완독/읽는 중 중 어느 서가를 보고 있었는지 세션 동안 기억 (책 상세로 갔다 돌아와도 유지)
+    let currentTab = sessionStorage.getItem('libraryActiveTab') || 'current';
 
     function switchTab(type, btn) {
       currentTab = type;
+      sessionStorage.setItem('libraryActiveTab', type);
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       filterBooks();
+    }
+
+    // 저장된 탭이 있으면 페이지가 열릴 때 그 탭 버튼을 활성 표시로 맞춰줌
+    function restoreTab() {
+      const savedBtn = document.querySelector(`.tab-btn[data-tab="${currentTab}"]`);
+      if (savedBtn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        savedBtn.classList.add('active');
+      }
     }
 
     // 검색어나 필터가 걸려있으면 탭 구분 없이 읽는 중 + 완독 서가 전체를 대상으로 통합 검색
@@ -195,6 +206,9 @@
 
       document.getElementById('noResult').style.display = visible === 0 ? 'block' : 'none';
     }
+
+    restoreTab();
+    filterBooks();
   </script>
 </body>
 </html>

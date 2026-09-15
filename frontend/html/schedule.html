@@ -1,275 +1,383 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="heritage">
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="theme-color" content="#2C3E50">
-  <meta name="msapplication-TileColor" content="#2C3E50">
-  <title>교환독서 – 일정</title>
-
-  <!-- Google Fonts: Nanum Myeongjo & Grandiflora One -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Grandiflora+One&display=swap" rel="stylesheet">
-
-  <!-- 공통 스타일시트 & 일정 전용 스타일시트 분리 연결 -->
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/schedule.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>일정 | 교환독서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/schedule.css" />
 </head>
-<body class="subpage" data-page="schedule">
-  <a href="#main" class="sr-only">본문으로 건너뛰기</a>
+<body class="schedule-body">
 
-  <!-- 상단 헤더 -->
-  <header class="site-header is-solid">
-    <a class="logo" href="index.html">교환독서</a>
-    <nav aria-label="주요">
-      <ul class="gnb">
-        <li><a href="index.html">홈</a></li>
-        <li><a aria-current="page" href="schedule.html">일정</a></li>
-        <li><a href="library.html">도서관</a></li>
-        <li><a href="community.html">게시판</a></li>
-        <li><a href="profile.html">프로필</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- 우측 세로 책갈피 리본 네비게이션 -->
+  <aside class="ribbon-nav">
+    <div class="ribbon-brand">교환독서</div>
+    <a href="index.html">메인</a>
+    <a href="library.html">도서관</a>
+    <a href="schedule.html" class="active">일정</a>
+    <a href="community.html">게시판</a>
+    <a href="profile.html">멤버</a>
+    <div class="ribbon-tail"></div>
+  </aside>
 
-  <!-- 메인 콘텐츠 -->
-  <main id="main">
-    <h1 class="schedule-page-title">【 일정 】</h1>
+  <main class="schedule-wrap">
+    <header class="schedule-head">
+      <span class="sub">ROTATION TIMELINE & ARCHIVE</span>
+      <h1 class="main-title">시간과 순환의 기록</h1>
+      <p class="desc">회차를 선택하여 지나온 여정과 다가올 교환 일정을 살펴보세요.</p>
+    </header>
 
-    <!-- 1. 회차 점프 탭 (3차/2차/1차) -->
-    <div class="schedule-tabs">
-      <a href="#round3" class="tab-btn is-active">3차 (현재)</a>
-      <a href="#round2" class="tab-btn">2차</a>
-      <a href="#round1" class="tab-btn">1차</a>
-    </div>
-
-    <!-- 2. 직관적인 5인 내 책 찾기 필터 -->
-    <div class="member-select-bar">
-      <span class="member-select-label">내 책 찾기:</span>
-      <button type="button" class="member-chip is-active" data-person="all">전체보기</button>
-      <button type="button" class="member-chip" data-person="시현">시현</button>
-      <button type="button" class="member-chip" data-person="태이">태이</button>
-      <button type="button" class="member-chip" data-person="희수">희수</button>
-      <button type="button" class="member-chip" data-person="지원">지원</button>
-      <button type="button" class="member-chip" data-person="민지">민지</button>
-    </div>
-
-    <!-- 3. 현재 내가 읽을 책 퀵 대시보드 배너 -->
-    <div class="current-reading-banner" id="myCurrentBookBanner">
-      <div class="banner-badge">3차 지금 읽는 책 (9/15 – 10월)</div>
-      <div class="banner-content" id="bannerContent">
-        <span class="banner-guide-text">위에서 내 이름을 누르면 지금 읽어야 할 책이 바로 표시됩니다.</span>
-      </div>
-    </div>
-
-    <!-- ============================================
-         3차 일정 (현재 진행중)
-    ============================================= -->
-    <section id="round3" class="panel schedule-panel">
-      <div class="schedule-panel-header">
-        <h2 class="schedule-round-title">제3차 교환독서</h2>
-        <span class="schedule-period-badge">26.09.15 – 27.03</span>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="table schedule-table" aria-label="3차 교환독서 일정">
-          <thead>
-            <tr>
-              <th scope="col" class="col-period">기간</th>
-              <th scope="col" class="col-title">책 제목</th>
-              <th scope="col" class="col-person">읽는 사람</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 9월 15일 - 10월 (NOW) -->
-            <tr data-person="태이"><td rowspan="5" class="period-cell is-current"><span class="now-pill">NOW</span>9/15 – 10월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="지원"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="민지" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
-
-            <!-- 11월 -->
-            <tr data-person="민지"><td rowspan="5" class="period-cell">11월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="지원" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-
-            <!-- 12-1월 -->
-            <tr data-person="지원"><td rowspan="5" class="period-cell">12 – 1월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="민지"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-
-            <!-- 2월 -->
-            <tr data-person="희수"><td rowspan="5" class="period-cell">2월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="지원"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="민지"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-
-            <!-- 3월 -->
-            <tr data-person="시현"><td rowspan="5" class="period-cell">3월</td><td class="book-title-cell">달러구트 꿈 백화점 0</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">나는 소망한다 내게 금지된 것을</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="지원"><td class="book-title-cell">프로젝트 헤일메리</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="민지"><td class="book-title-cell">자본주의</td><td><span class="reader-tag tag-mj">민지</span></td></tr>
-            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">아가미</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-          </tbody>
-        </table>
+    <!-- 회차 선택 셀렉터 (지난 회차 / 현재 / 다가올 회차 전체 선택 가능) -->
+    <section class="round-selector-bar">
+      <div class="round-tabs">
+        <button type="button" class="round-tab-btn active" onclick="selectRound(1, this)">
+          <span class="tab-badge current">현재</span> 제 1회차
+        </button>
+        <button type="button" class="round-tab-btn" onclick="selectRound(2, this)">
+          <span class="tab-badge">예정</span> 제 2회차
+        </button>
+        <button type="button" class="round-tab-btn" onclick="selectRound(3, this)">
+          <span class="tab-badge">예정</span> 제 3회차
+        </button>
+        <button type="button" class="round-tab-btn" onclick="selectRound(4, this)">
+          <span class="tab-badge">예정</span> 제 4회차
+        </button>
+        <button type="button" class="round-tab-btn" onclick="selectRound(5, this)">
+          <span class="tab-badge">예정</span> 제 5회차
+        </button>
       </div>
     </section>
 
-    <!-- ============================================
-         2차 일정 (아카이브)
-    ============================================= -->
-    <section id="round2" class="panel schedule-panel past-schedule-panel">
-      <div class="schedule-panel-header">
-        <h2 class="schedule-round-title">제2차 교환독서</h2>
-        <span class="schedule-period-badge">25.10 – 26.07 (완료)</span>
-      </div>
+    <!-- [섹션 1] 선택된 회차 상세 보드 (앤틱 도서 대출증 카드 형태) -->
+    <section class="checkout-card-stage">
+      <div class="checkout-card">
+        <div class="card-header">
+          <div class="stamp-box">
+            <span class="stamp-circle" id="cardRoundStamp">ROUND 01</span>
+          </div>
+          <div class="card-title-group">
+            <span class="card-label">CIRCULATION RECORD / 독서 순환표</span>
+            <h2 class="card-round-title" id="cardRoundTitle">제 1회차 독서 기간</h2>
+            <p class="card-period-date" id="cardPeriodDate">2026. 09. 01 — 2026. 09. 30</p>
+          </div>
+          <div class="dday-tag-box">
+            <span class="dday-count" id="cardDday">D-14</span>
+            <span class="dday-caption" id="cardStatusCaption">독서 진행 중</span>
+          </div>
+        </div>
 
-      <div class="table-wrapper">
-        <table class="table schedule-table" aria-label="2차 교환독서 기록">
-          <thead>
-            <tr>
-              <th scope="col" class="col-period">기간</th>
-              <th scope="col" class="col-title">책 제목</th>
-              <th scope="col" class="col-person">읽은 사람</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 10-11월 -->
-            <tr data-person="태이"><td rowspan="4" class="period-cell">10 – 11월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="지원" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
+        <!-- 5인 대출 도서 리스트 -->
+        <div class="reader-checkout-grid" id="readerGrid">
+          <!-- JS로 동적 렌더링 -->
+        </div>
 
-            <!-- 12-1월 -->
-            <tr data-person="희수"><td rowspan="4" class="period-cell">12 – 1월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="지원"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-
-            <!-- 2월 -->
-            <tr data-person="시현"><td rowspan="4" class="period-cell">2월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="지원"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-
-            <!-- 3-4월 -->
-            <tr data-person="지원"><td rowspan="4" class="period-cell">3 – 4월</td><td class="book-title-cell">지뢰 글리코</td><td><span class="reader-tag tag-jw">지원</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">일억 번째 여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">바깥은 여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">다정한 사람이 이긴다</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-          </tbody>
-        </table>
+        <!-- 전달 흐름 안내 바 -->
+        <div class="relay-flow-bar">
+          <span class="flow-label">릴레이 전달 방향 :</span>
+          <span class="flow-seq">시현 ➔ 태이 ➔ 희수 ➔ 지원 ➔ 민지 ➔ (시현)</span>
+        </div>
       </div>
     </section>
 
-    <!-- ============================================
-         1차 일정 (아카이브)
-    ============================================= -->
-    <section id="round1" class="panel schedule-panel past-schedule-panel">
-      <div class="schedule-panel-header">
-        <h2 class="schedule-round-title">제1차 교환독서</h2>
-        <span class="schedule-period-badge">25.05 – 25.09 (완료)</span>
+    <!-- [섹션 2] 지난 교환 기록 아카이브 -->
+    <section class="archive-section">
+      <div class="archive-title-group">
+        <h2 class="archive-sub-title">〔 지난 교환 기록 아카이브 〕</h2>
+        <p class="archive-desc">5회차 순환이 시작되기 전, 각자 완독하고 다음 사람에게 전달했던 책들의 기록입니다.</p>
       </div>
+      <div class="archive-grid">
+        <div class="archive-member-card">
+          <div class="archive-member-header">
+            <span class="dot" style="background:#5B7A9E;"></span>
+            <span class="archive-member-name">시현</span>
+            <span class="archive-count">2권 완독</span>
+          </div>
+          <ul class="archive-book-list">
+            <li>바깥은 여름 <span class="archive-author">· 김애란</span></li>
+            <li>여름 <span class="archive-author">· 이디스 워튼</span></li>
+          </ul>
+        </div>
+        <div class="archive-member-card">
+          <div class="archive-member-header">
+            <span class="dot" style="background:#B8707F;"></span>
+            <span class="archive-member-name">태이</span>
+            <span class="archive-count">2권 완독</span>
+          </div>
+          <ul class="archive-book-list">
+            <li>지뢰 글리코 <span class="archive-author">· 아오사키 유고</span></li>
+            <li>지구 끝의 온실 <span class="archive-author">· 김초엽</span></li>
+          </ul>
+        </div>
+        <div class="archive-member-card">
+          <div class="archive-member-header">
+            <span class="dot" style="background:#6D9872;"></span>
+            <span class="archive-member-name">희수</span>
+            <span class="archive-count">2권 완독</span>
+          </div>
+          <ul class="archive-book-list">
+            <li>궤도의 밖에서, 나의 룸메이트에게 <span class="archive-author">· 전삼혜</span></li>
+            <li>일억 번째 여름 <span class="archive-author">· 청예</span></li>
+          </ul>
+        </div>
+        <div class="archive-member-card">
+          <div class="archive-member-header">
+            <span class="dot" style="background:#8B71AC;"></span>
+            <span class="archive-member-name">지원</span>
+            <span class="archive-count">1권 완독</span>
+          </div>
+          <ul class="archive-book-list">
+            <li>다정한 사람이 이긴다 <span class="archive-author">· 이해인</span></li>
+          </ul>
+        </div>
+        <div class="archive-member-card">
+          <div class="archive-member-header">
+            <span class="dot" style="background:#C84B4B;"></span>
+            <span class="archive-member-name">민지</span>
+            <span class="archive-count">0권 완독</span>
+          </div>
+          <p class="archive-empty">1회차부터 합류해 아직 완독 기록이 없어요.</p>
+        </div>
+      </div>
+    </section>
 
-      <div class="table-wrapper">
-        <table class="table schedule-table" aria-label="1차 교환독서 기록">
-          <thead>
-            <tr>
-              <th scope="col" class="col-period">기간</th>
-              <th scope="col" class="col-title">책 제목</th>
-              <th scope="col" class="col-person">읽은 사람</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 4-5월 -->
-            <tr data-person="희수"><td rowspan="3" class="period-cell">4 – 5월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="태이"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
+    <!-- [섹션 3] 5인 교집합 모임 일정 조율기 -->
+    <section class="meeting-scheduler-section">
+      <div class="scheduler-card">
+        <div class="scheduler-header">
+          <span class="tool-tag">MEETING COORDINATOR</span>
+          <h2 class="scheduler-title">다음 독서 모임 날짜 찾기</h2>
+          <p class="scheduler-desc">각 멤버가 가능한 주말 일정을 누르면 5명의 교집합 날짜가 자동으로 도출됩니다.</p>
+        </div>
 
-            <!-- 6-7월 -->
-            <tr data-person="시현"><td rowspan="3" class="period-cell">6 – 7월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-            <tr data-person="태이" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-te">태이</span></td></tr>
+        <!-- 멤버별 가능 날짜 체크보드 -->
+        <div class="member-calendar-board">
+          <!-- 시현 -->
+          <div class="member-vote-row">
+            <div class="vote-user">
+              <span class="user-seal" style="background:#5B7A9E;"></span>
+              <span class="user-name">시현</span>
+            </div>
+            <div class="slot-buttons">
+              <button type="button" class="slot-btn selected">09.26 (토)</button>
+              <button type="button" class="slot-btn selected">09.27 (일)</button>
+              <button type="button" class="slot-btn">10.03 (토)</button>
+              <button type="button" class="slot-btn selected">10.04 (일)</button>
+            </div>
+          </div>
 
-            <!-- 8-9월 -->
-            <tr data-person="태이"><td rowspan="3" class="period-cell">8 – 9월</td><td class="book-title-cell">궤도의 밖에서, 나의 룸메이트에게</td><td><span class="reader-tag tag-te">태이</span></td></tr>
-            <tr data-person="시현"><td class="book-title-cell">지구 끝의 온실</td><td><span class="reader-tag tag-sh">시현</span></td></tr>
-            <tr data-person="희수" class="round-group-end"><td class="book-title-cell">여름</td><td><span class="reader-tag tag-hs">희수</span></td></tr>
-          </tbody>
-        </table>
+          <!-- 태이 -->
+          <div class="member-vote-row">
+            <div class="vote-user">
+              <span class="user-seal" style="background:#B8707F;"></span>
+              <span class="user-name">태이</span>
+            </div>
+            <div class="slot-buttons">
+              <button type="button" class="slot-btn">09.26 (토)</button>
+              <button type="button" class="slot-btn selected">09.27 (일)</button>
+              <button type="button" class="slot-btn selected">10.03 (토)</button>
+              <button type="button" class="slot-btn selected">10.04 (일)</button>
+            </div>
+          </div>
+
+          <!-- 희수 -->
+          <div class="member-vote-row">
+            <div class="vote-user">
+              <span class="user-seal" style="background:#6D9872;"></span>
+              <span class="user-name">희수</span>
+            </div>
+            <div class="slot-buttons">
+              <button type="button" class="slot-btn selected">09.26 (토)</button>
+              <button type="button" class="slot-btn selected">09.27 (일)</button>
+              <button type="button" class="slot-btn selected">10.03 (토)</button>
+              <button type="button" class="slot-btn">10.04 (일)</button>
+            </div>
+          </div>
+
+          <!-- 지원 -->
+          <div class="member-vote-row">
+            <div class="vote-user">
+              <span class="user-seal" style="background:#8B71AC;"></span>
+              <span class="user-name">지원</span>
+            </div>
+            <div class="slot-buttons">
+              <button type="button" class="slot-btn">09.26 (토)</button>
+              <button type="button" class="slot-btn selected">09.27 (일)</button>
+              <button type="button" class="slot-btn">10.03 (토)</button>
+              <button type="button" class="slot-btn selected">10.04 (일)</button>
+            </div>
+          </div>
+
+          <!-- 민지 -->
+          <div class="member-vote-row">
+            <div class="vote-user">
+              <span class="user-seal" style="background:#C84B4B;"></span>
+              <span class="user-name">민지</span>
+            </div>
+            <div class="slot-buttons">
+              <button type="button" class="slot-btn selected">09.26 (토)</button>
+              <button type="button" class="slot-btn selected">09.27 (일)</button>
+              <button type="button" class="slot-btn selected">10.03 (토)</button>
+              <button type="button" class="slot-btn selected">10.04 (일)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 교집합 결과 도출 및 확정 영역 -->
+        <div class="result-intersection-box">
+          <div class="intersection-header">
+            <span class="calc-icon">✦</span>
+            <h3>도출된 최적 모임 후보일</h3>
+          </div>
+
+          <div class="candidate-slots">
+            <div class="candidate-card perfect-match">
+              <span class="match-badge">5명 모두 가능 (교집합 100%)</span>
+              <strong class="match-date">2026년 9월 27일 (일)</strong>
+              <span class="match-time">추천 시간: 오후 2시 — 5시</span>
+            </div>
+            <div class="candidate-card sub-match">
+              <span class="match-badge">4명 가능 (1명 불가)</span>
+              <strong class="match-date">2026년 10월 4일 (일)</strong>
+              <span class="match-time">불가: 희수</span>
+            </div>
+          </div>
+
+          <!-- 확정 및 게시판 공지 등록 폼 -->
+          <div class="confirmation-form">
+            <div class="confirm-inputs">
+              <select class="select-slot">
+                <option value="0927">확정 일시: 2026. 09. 27 (일) 오후 2시</option>
+                <option value="1004">확정 일시: 2026. 10. 04 (일) 오후 2시</option>
+              </select>
+              <input type="text" class="input-place" placeholder="모임 장소 입력 (예: 연남동 서재 카페)" value="안국동 한옥 북살롱" />
+            </div>
+            <button type="button" class="btn-publish-notice" onclick="alert('초안 단계입니다. 게시판 공지사항으로 등록되는 로직이 연결될 예정입니다!')">
+              📢 모임 확정 및 게시판 공지 등록
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- 하단 푸터 -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <span class="footer-divider">·</span>
-        <a href="https://github.com/sihyeon25/-BookExchange" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="footer-divider">·</span>
-        <a href="mailto:sihyeon25@naver.com">Contact</a>
-      </div>
-      <small>© 2026 교환독서. All rights reserved.</small>
-    </div>
-  </footer>
-
-  <!-- 내 책 퀵 뷰 & 스포트라이트 스크립트 -->
   <script>
-    (() => {
-      const current3rdBooks = {
-        '태이': '달러구트 꿈 백화점 0',
-        '시현': '나는 소망한다 내게 금지된 것을',
-        '희수': '프로젝트 헤일메리',
-        '지원': '자본주의',
-        '민지': '아가미'
-      };
+    // 5개 회차별 순환 데이터 매핑 (book-detail.html의 최신 멤버 배정 기준)
+    const allRounds = {
+      1: {
+        title: "제 1회차 독서 기간",
+        period: "2026. 09. 01 — 2026. 09. 30",
+        dday: "D-14",
+        status: "독서 진행 중",
+        stamp: "ROUND 01",
+        list: [
+          { reader: "시현", color: "#5B7A9E", book: "나는 소망한다 내게 금지된 것을", author: "양귀자", spine: "#004AEB" },
+          { reader: "태이", color: "#B8707F", book: "달러구트 꿈 백화점 0", author: "이미예", spine: "#E8899E" },
+          { reader: "희수", color: "#6D9872", book: "프로젝트 헤일메리", author: "앤디 위어", spine: "#1D357A" },
+          { reader: "지원", color: "#8B71AC", book: "자본주의", author: "EBS 자본주의 제작팀", spine: "#C07F00" },
+          { reader: "민지", color: "#C84B4B", book: "아가미", author: "구병모", spine: "#243356" }
+        ]
+      },
+      2: {
+        title: "제 2회차 독서 기간",
+        period: "2026. 10. 01 — 2026. 10. 31",
+        dday: "D-44",
+        status: "도서 전달 대기",
+        stamp: "ROUND 02",
+        list: [
+          { reader: "시현", color: "#5B7A9E", book: "아가미", author: "구병모", spine: "#243356" },
+          { reader: "태이", color: "#B8707F", book: "나는 소망한다 내게 금지된 것을", author: "양귀자", spine: "#004AEB" },
+          { reader: "희수", color: "#6D9872", book: "달러구트 꿈 백화점 0", author: "이미예", spine: "#E8899E" },
+          { reader: "지원", color: "#8B71AC", book: "프로젝트 헤일메리", author: "앤디 위어", spine: "#1D357A" },
+          { reader: "민지", color: "#C84B4B", book: "자본주의", author: "EBS 자본주의 제작팀", spine: "#C07F00" }
+        ]
+      },
+      3: {
+        title: "제 3회차 독서 기간",
+        period: "2026. 11. 01 — 2026. 11. 30",
+        dday: "D-74",
+        status: "예정 회차",
+        stamp: "ROUND 03",
+        list: [
+          { reader: "시현", color: "#5B7A9E", book: "자본주의", author: "EBS 자본주의 제작팀", spine: "#C07F00" },
+          { reader: "태이", color: "#B8707F", book: "아가미", author: "구병모", spine: "#243356" },
+          { reader: "희수", color: "#6D9872", book: "나는 소망한다 내게 금지된 것을", author: "양귀자", spine: "#004AEB" },
+          { reader: "지원", color: "#8B71AC", book: "달러구트 꿈 백화점 0", author: "이미예", spine: "#E8899E" },
+          { reader: "민지", color: "#C84B4B", book: "프로젝트 헤일메리", author: "앤디 위어", spine: "#1D357A" }
+        ]
+      },
+      4: {
+        title: "제 4회차 독서 기간",
+        period: "2026. 12. 01 — 2026. 12. 31",
+        dday: "D-105",
+        status: "예정 회차",
+        stamp: "ROUND 04",
+        list: [
+          { reader: "시현", color: "#5B7A9E", book: "프로젝트 헤일메리", author: "앤디 위어", spine: "#1D357A" },
+          { reader: "태이", color: "#B8707F", book: "자본주의", author: "EBS 자본주의 제작팀", spine: "#C07F00" },
+          { reader: "희수", color: "#6D9872", book: "아가미", author: "구병모", spine: "#243356" },
+          { reader: "지원", color: "#8B71AC", book: "나는 소망한다 내게 금지된 것을", author: "양귀자", spine: "#004AEB" },
+          { reader: "민지", color: "#C84B4B", book: "달러구트 꿈 백화점 0", author: "이미예", spine: "#E8899E" }
+        ]
+      },
+      5: {
+        title: "제 5회차 (최종 회차)",
+        period: "2027. 01. 01 — 2027. 01. 31",
+        dday: "D-136",
+        status: "최종 반납 회차",
+        stamp: "ROUND 05",
+        list: [
+          { reader: "시현", color: "#5B7A9E", book: "달러구트 꿈 백화점 0", author: "이미예", spine: "#E8899E" },
+          { reader: "태이", color: "#B8707F", book: "프로젝트 헤일메리", author: "앤디 위어", spine: "#1D357A" },
+          { reader: "희수", color: "#6D9872", book: "자본주의", author: "EBS 자본주의 제작팀", spine: "#C07F00" },
+          { reader: "지원", color: "#8B71AC", book: "아가미", author: "구병모", spine: "#243356" },
+          { reader: "민지", color: "#C84B4B", book: "나는 소망한다 내게 금지된 것을", author: "양귀자", spine: "#004AEB" }
+        ]
+      }
+    };
 
-      const chips = document.querySelectorAll('.member-chip');
-      const rows = document.querySelectorAll('.schedule-table tbody tr');
-      const bannerContent = document.getElementById('bannerContent');
+    function renderRound(r) {
+      const data = allRounds[r];
+      document.getElementById('cardRoundTitle').innerText = data.title;
+      document.getElementById('cardPeriodDate').innerText = data.period;
+      document.getElementById('cardDday').innerText = data.dday;
+      document.getElementById('cardStatusCaption').innerText = data.status;
+      document.getElementById('cardRoundStamp').innerText = data.stamp;
 
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          chips.forEach(c => c.classList.remove('is-active'));
-          chip.classList.add('is-active');
+      const html = data.list.map(item => `
+        <article class="reader-slot">
+          <div class="slot-reader-header">
+            <span class="dot" style="background:${item.color};"></span>
+            <span class="name">${item.reader}</span>
+            <span class="tag-reading">현재 읽는 책</span>
+          </div>
+          <div class="slot-book-body">
+            <div class="spine-indicator" style="background:${item.spine};"></div>
+            <div class="book-meta">
+              <strong class="title">『${item.book}』</strong>
+              <span class="author">${item.author}</span>
+            </div>
+          </div>
+        </article>
+      `).join('');
 
-          const person = chip.dataset.person;
+      document.getElementById('readerGrid').innerHTML = html;
+    }
 
-          if (person === 'all') {
-            bannerContent.innerHTML = `<span class="banner-guide-text">위에서 내 이름을 누르면 지금 읽어야 할 책이 바로 표시됩니다.</span>`;
-            rows.forEach(r => r.classList.remove('is-dimmed', 'is-highlighted'));
-          } else {
-            const bookTitle = current3rdBooks[person] || '도서 정보 확인중';
-            bannerContent.innerHTML = `
-              <div class="my-book-result">
-                <span class="reader-name">${person}</span>님이 지금 읽는 책은 
-                <strong class="highlight-book-title">《${bookTitle}》</strong> 입니다.
-              </div>
-            `;
+    function selectRound(r, btn) {
+      document.querySelectorAll('.round-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderRound(r);
+    }
 
-            rows.forEach(r => {
-              if (r.dataset.person === person) {
-                r.classList.add('is-highlighted');
-                r.classList.remove('is-dimmed');
-              } else {
-                r.classList.add('is-dimmed');
-                r.classList.remove('is-highlighted');
-              }
-            });
-          }
-        });
-      });
-    })();
+    // 초기 1회차 렌더링
+    renderRound(1);
+
+    // 날짜 토글
+    document.querySelectorAll('.slot-btn').forEach(btn => {
+      btn.addEventListener('click', () => btn.classList.toggle('selected'));
+    });
   </script>
   <script src="../js/page-transitions.js"></script>
 </body>

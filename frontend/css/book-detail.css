@@ -111,8 +111,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 .book-author-pub {
   font-size: 0.95rem;
   color: #705E46;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
+
+.pub-meta { color: #8C7A6A; }
 
 /* 상단 카드 안 별점 총점 요약 (탭 안 상세 평점과 값이 같이 갱신됨) */
 .rating-summary-compact {
