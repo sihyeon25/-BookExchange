@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>두 명의 명리학자가 바라본 나</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Serif KR", serif;
+      background-color: #f7f4ee;
+      color: #262422;
+      display: flex;
+      justify-content: center;
+      line-height: 1.42;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      padding: 14mm 16mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background-color: #f7f4ee;
+    }
+
+    /* 상단 헤더 */
+    .header {
+      text-align: center;
+      border-bottom: 1.5px solid #85222b;
+      padding-bottom: 8px;
+    }
+    .header h1 {
+      font-size: 19pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #85222b;
+      margin-bottom: 2px;
+    }
+    .header .subtitle {
+      font-size: 8pt;
+      color: #6d5b4a;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .bazi-card {
+      display: inline-flex;
+      background: #eee8dc;
+      border: 1px solid #d4c8b5;
+      border-radius: 4px;
+      padding: 5px 14px;
+      gap: 16px;
+    }
+    .pillar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 7.8pt;
+    }
+    .pillar-name {
+      color: #7d6a57;
+      font-size: 7pt;
+      margin-bottom: 1px;
+    }
+    .pillar-char {
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: #201b17;
+    }
+    .pillar-sub {
+      font-size: 6.8pt;
+      color: #555;
+    }
+
+    /* 중앙: 2단 비교 */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .column {
+      background: #fbf9f5;
+      border: 1px solid #dfd7ca;
+      border-radius: 4px;
+      padding: 10px 11px;
+    }
+    .column-title {
+      font-size: 10pt;
+      font-weight: bold;
+      padding-bottom: 4px;
+      margin-bottom: 7px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #c9bca8;
+    }
+    .col-a .column-title { color: #85222b; }
+    .col-b .column-title { color: #8e6c27; }
+    .expert-role {
+      font-size: 7.2pt;
+      font-weight: normal;
+      color: #665b50;
+    }
+
+    .topic {
+      margin-bottom: 7px;
+    }
+    .topic-head {
+      font-size: 8pt;
+      font-weight: bold;
+      color: #24201d;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .topic-head::before {
+      content: "▪";
+      font-size: 7pt;
+      color: #85222b;
+    }
+    .col-b .topic-head::before {
+      color: #8e6c27;
+    }
+    .topic-p {
+      font-size: 7.7pt;
+      color: #332f2c;
+      margin-top: 1px;
+      text-align: justify;
+    }
+    .topic-basis {
+      font-size: 6.9pt;
+      color: #786b5f;
+      background: #f0eae0;
+      padding: 1px 5px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* 하단: 종합 */
+    .summary-section {
+      background: #fbf9f5;
+      border: 1px solid #dfd7ca;
+      border-top: 2px solid #85222b;
+      border-radius: 4px;
+      padding: 9px 12px;
+      margin-top: 8px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .sum-block-title {
+      font-size: 8.3pt;
+      font-weight: bold;
+      color: #85222b;
+      margin-bottom: 3px;
+      border-bottom: 1px dashed #d1c4b2;
+      padding-bottom: 2px;
+    }
+    .sum-p {
+      font-size: 7.5pt;
+      color: #383430;
+      line-height: 1.35;
+    }
+    .action-item {
+      display: flex;
+      gap: 3px;
+      font-size: 7.4pt;
+      margin-bottom: 1px;
+    }
+    .action-num {
+      color: #85222b;
+      font-weight: bold;
+      min-width: 11px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <!-- 상단 영역 -->
+  <header class="header">
+    <h1>두 명의 명리학자가 바라본 나</h1>
+    <div class="subtitle">2005년 3월 2일 오전 10:30 (양력) · 곤명(여성) · 지역 경기도 안산</div>
+    <div class="bazi-card">
+      <div class="pillar">
+        <span class="pillar-name">시주(時柱)</span>
+        <span class="pillar-char">癸巳</span>
+        <span class="pillar-sub">계사 (편관·식신)</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-name">일주(日柱)</span>
+        <span class="pillar-char">丁酉</span>
+        <span class="pillar-sub">정유 (일원·편재)</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-name">월주(月柱)</span>
+        <span class="pillar-char">戊寅</span>
+        <span class="pillar-sub">무인 (상관·정인)</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-name">년주(年柱)</span>
+        <span class="pillar-char">乙酉</span>
+        <span class="pillar-sub">을유 (편인·편재)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 중앙: 두 전문가 2단 분석 -->
+  <main class="comparison-grid">
+    <!-- 전문가 A -->
+    <section class="column col-a">
+      <div class="column-title">
+        <span>전문가 A</span>
+        <span class="expert-role">직설적 현실파</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">타고난 성향</div>
+        <p class="topic-p">머리 회전이 빠르고 현실적 계산이 정확하나, 결정을 너무 오래 재다가 실행 골든타임을 놓치기 쉽습니다. 남에게 빈틈을 보이기 싫어해 겉은 완벽주의를 표방하지만 속은 잔걱정으로 자주 번아웃을 겪습니다.</p>
+        <span class="topic-basis">근거: 인월(寅月) 목생화(木生火)를 받는 정유(丁酉)일주, 인유(寅酉) 원진 작용</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">강한 재능과 약점</div>
+        <p class="topic-p">데이터 분석과 기술적 결함을 잡아내는 정밀한 감각은 독보적이지만, 결과가 즉시 안 나오면 급격히 흥미를 잃습니다. 완성도에 집착해 시작 자체를 미루는 회피형 완벽주의가 치명적인 약점입니다.</p>
+        <span class="topic-basis">근거: 월간 상관(戊)의 투출 및 일지 편재(酉金) 천을귀인의 세밀함</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">직업 및 재물운</div>
+        <p class="topic-p">말이나 감성보다는 명확한 시스템, 코딩, 기술 기반 전문직에서 돈이 마르지 않고 확실하게 쌓입니다. 단, 겉만 번지르르한 간판이나 타인의 기준을 좇아 애매한 학위만 늘리면 비용과 시간만 날립니다.</p>
+        <span class="topic-basis">근거: 상관생재(傷官生財)와 시지 사화(巳火) 금(金) 재성국 형성</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">인간관계 및 연애운</div>
+        <p class="topic-p">사람을 대할 때 은근히 실용적 기준을 엄격하게 적용해 마음을 터놓는 진짜 내 편이 적은 편입니다. 연애에서도 통제욕을 내려놓지 않으면 시주의 계수 편관이 일방적 피로와 갈등으로 둔갑합니다.</p>
+        <span class="topic-basis">근거: 시간 편관(癸水) 투출 및 일월지 인유(寅酉)의 예민성</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">현재 고민에 대한 조언</div>
+        <p class="topic-p">단순 학벌 간판에 연연하지 말고 시장에서 직접 증명 가능한 실무 포트폴리오와 자격증을 선점하십시오. 높은 이상에 갇혀 고민만 늘리지 말고, 60점짜리 결과물이라도 세상에 먼저 내놓는 훈련이 시급합니다.</p>
+        <span class="topic-basis">근거: 관인상생(官印相生)보다 식상생재(食傷生財)의 실리 추구가 유리한 구조</span>
+      </div>
+    </section>
+
+    <!-- 전문가 B -->
+    <section class="column col-b">
+      <div class="column-title">
+        <span>전문가 B</span>
+        <span class="expert-role">신중한 정통파</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">타고난 성향</div>
+        <p class="topic-p">초봄 인월의 온기 품은 촛불로 학구열과 지적 탐구심이 기본 바탕에 깊게 자리 잡고 있습니다. 인성과 상관이 균형을 이뤄 예의와 통찰력을 갖췄으나, 생각이 다소 복잡해 결론을 짓는 데 에너지가 듭니다.</p>
+        <span class="topic-basis">근거: 인월 정화(丁火) 정인격(正印格) 형성 및 상관패인(傷官佩印)</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">강한 재능과 약점</div>
+        <p class="topic-p">문제를 논리적으로 해체해 재설계하는 설계 역량과 자격증 취득 능력이 뛰어납니다. 다만 금(金) 편재 기운이 중첩되어 있어 환경이 안정되지 않으면 학업 집중도가 분산될 여지가 있습니다.</p>
+        <span class="topic-basis">근거: 사유(巳酉) 반합 금국(金局)에 따른 재다신약(財多身弱) 경향성</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">직업 및 재물운</div>
+        <p class="topic-p">정규 교육 기반의 기술 라이선스를 갖출 때 재물 흐름이 가장 탄탄하고 안정적으로 유지됩니다. 20대 후반부터 관(官)과 인(印)의 흐름이 보완되므로 글로벌 라이선스나 연구 직군 진출도 가능합니다.</p>
+        <span class="topic-basis">근거: 월지 인목(寅木) 모체 유지 및 대운 천간의 수목(水木) 흐름 보강 조건</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">인간관계 및 연애운</div>
+        <p class="topic-p">도덕적 기준과 품격을 중시하여 신뢰가 구축된 소수의 사람과 깊은 유대감을 맺는 기질입니다. 상대에게 정신적 존경심을 느낄 때 관계가 안정되므로 지적 코드가 맞는 상대를 만나는 것이 핵심입니다.</p>
+        <span class="topic-basis">근거: 천을귀인(酉金) 좌정과 시간 계수(癸水) 편관의 통제성 조화</span>
+      </div>
+
+      <div class="topic">
+        <div class="topic-head">현재 고민에 대한 조언</div>
+        <p class="topic-p">학력은 그 자체보다 전문성을 증명하는 보조 수단으로 삼아야 운의 방해를 최소화할 수 있습니다. 지식(인성)과 결과물(재성)을 연결하는 해외 연계 프로그램이나 특화 전공 심화가 유리합니다.</p>
+        <span class="topic-basis">근거: 인목(寅木) 지살·역마성과 사화(巳火) 변동성의 해외·이동 길작용</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- 하단: 종합 분석 -->
+  <footer class="summary-section">
+    <div class="summary-grid">
+      <div>
+        <div class="sum-block-title">두 전문가의 공통 합의</div>
+        <p class="sum-p">구체적 기술과 지식을 결합한 전문직 사주이며, 추상적 학문보다는 실물 결과물로 평가받아야 성공합니다.<br>생각과 분석이 실행을 앞질러 결단을 늦추는 습관을 경계해야 한다는 점에 완전히 일치했습니다.</p>
+      </div>
+      <div>
+        <div class="sum-block-title">해석 차이와 그 이유</div>
+        <p class="sum-p">A는 사유(巳酉) 금국을 보아 학력 거품을 빼고 빠른 실무 진입을 권고했습니다.<br>반면 B는 정인격(寅木)을 보아 라이선스 취득과 전공 연계를 통한 안전한 도약을 우선으로 보았습니다.</p>
+      </div>
+      <div>
+        <div class="sum-block-title">지금 실천할 3가지 행동</div>
+        <div class="action-item"><span class="action-num">1.</span><span><strong>포트폴리오 실체화:</strong> 머릿속 구상을 2주 단위의 작고 확실한 작업물로 완결짓기</span></div>
+        <div class="action-item"><span class="action-num">2.</span><span><strong>전문 자격증 1개 확정:</strong> 학력 스트레스를 기술 면허나 공인 성적으로 정면 돌파</span></div>
+        <div class="action-item"><span class="action-num">3.</span><span><strong>환경 확장:</strong> 어학·해외 프로그램 등 역마성(인목·사화)을 학업 확장에 적극 활용</span></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

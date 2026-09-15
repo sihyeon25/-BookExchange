@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도서 상세 | 교환독서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/book-detail.css" />
+</head>
+<body class="detail-body">
+
+  <!-- 플로팅 네비게이션 -->
+  <nav class="detail-nav">
+    <a href="library.html" class="back-link">← 서가로 돌아가기</a>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="schedule.html">일정</a>
+      <a href="library.html" class="active">도서관</a>
+      <a href="community.html">게시판</a>
+      <a href="profile.html">프로필</a>
+    </div>
+  </nav>
+
+  <main class="detail-container">
+    <!-- 1. 상단 도서 정보 카드 -->
+    <section class="book-intro-card">
+      <div class="book-cover-stage">
+        <img id="detailCover" src="../images/five.jpg" alt="책 표지" onerror="this.src='../images/five.jpg'" />
+      </div>
+
+      <div class="book-info-spec">
+        <div class="book-meta-top">
+          <span class="badge-status" id="detailStatus">읽는 중</span>
+          <span class="badge-genre" id="detailGenre">소설/문학</span>
+          <span class="badge-call" id="detailCall">SH-01</span>
+        </div>
+
+        <h1 class="book-title" id="detailTitle">도서 정보를 찾을 수 없습니다</h1>
+        <p class="book-author-pub"><span id="detailAuthor"></span> 지음</p>
+
+        <!-- 별점 총점 요약 -->
+        <div class="rating-summary-compact">
+          <span class="score-num-compact" id="scoreNumCompact">–</span>
+          <span class="score-stars-compact" id="scoreStarsCompact"></span>
+          <span class="score-caption-compact" id="scoreCaptionCompact">아직 남겨진 평점이 없어요</span>
+        </div>
+
+        <div class="book-summary-box">
+          <h3>도서 소개</h3>
+          <p id="detailDesc"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 하단 탭 (5인 평점 리뷰 VS 읽는 중 생각/토론 메모) -->
+    <section class="detail-tabs-section">
+      <div class="detail-tabs">
+        <button class="tab-btn active" onclick="switchDetailTab('reviews', this)">
+          ⭐ 5인의 완독 평점 & 감상평
+        </button>
+        <button class="tab-btn" onclick="switchDetailTab('discussion', this)">
+          📝 실시간 읽는 중 메모 & 토론 발제
+        </button>
+      </div>
+
+      <!-- [탭 1] 5인 평점 리뷰 뷰 -->
+      <div id="tab-reviews" class="tab-content active">
+        <div class="rating-overview">
+          <div class="score-large">
+            <span class="score-num" id="scoreNum">–</span>
+            <span class="score-stars" id="scoreStars"></span>
+          </div>
+          <p class="score-caption" id="scoreCaption">아직 남겨진 평점이 없어요. 가장 먼저 남겨보세요!</p>
+        </div>
+
+        <div class="review-list" id="reviewList"></div>
+
+        <!-- 감상평 남기기 폼 -->
+        <div class="write-comment-box">
+          <h3>나의 평점 & 완독평 남기기</h3>
+          <div class="form-row">
+            <select class="custom-select" id="reviewAuthor">
+              <option value="">작성자 선택</option>
+              <option value="시현">시현</option>
+              <option value="태이">태이</option>
+              <option value="희수">희수</option>
+              <option value="지원">지원</option>
+              <option value="민지">민지</option>
+            </select>
+            <select class="custom-select" id="reviewStars">
+              <option value="">별점 선택</option>
+              <option value="5">★★★★★ (5.0)</option>
+              <option value="4">★★★★☆ (4.0)</option>
+              <option value="3">★★★☆☆ (3.0)</option>
+              <option value="2">★★☆☆☆ (2.0)</option>
+              <option value="1">★☆☆☆☆ (1.0)</option>
+            </select>
+          </div>
+          <textarea id="reviewText" placeholder="책을 완독한 후 남기는 총평을 적어주세요..."></textarea>
+          <button class="btn-submit" type="button" onclick="submitReview()">기록 저장</button>
+        </div>
+      </div>
+
+      <!-- [탭 2] 읽는 도중 실시간 메모 & 토론 발제 뷰 -->
+      <div id="tab-discussion" class="tab-content">
+        <div class="discussion-guidance">
+          <p>💡 책을 읽는 도중 문득 떠오른 생각, 다음 주자에게 묻고 싶은 질문을 가볍게 체크리스트처럼 남겨보세요.</p>
+        </div>
+
+        <div class="memo-cards" id="memoList"></div>
+
+        <div class="write-comment-box">
+          <h3>읽는 중 생각 / 질문 던지기</h3>
+          <div class="form-row">
+            <select class="custom-select" id="memoAuthor">
+              <option value="">작성자 선택</option>
+              <option value="시현">시현</option>
+              <option value="태이">태이</option>
+              <option value="희수">희수</option>
+              <option value="지원">지원</option>
+              <option value="민지">민지</option>
+            </select>
+            <input type="text" class="custom-input" id="memoPage" placeholder="읽고 있는 페이지 (예: p.145)" />
+          </div>
+          <textarea id="memoText" placeholder="다음 사람에게 넘길 토론 질문이나 짧은 단상을 남겨주세요..."></textarea>
+          <button class="btn-submit" type="button" onclick="submitMemo()">메모 남기기</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 시현/태이/희수/지원/민지 고유 색상 (사이트 전체에서 재사용 중인 멤버 컬러)
+    const MEMBER_COLORS = { 시현: '#5B7A9E', 태이: '#B8707F', 희수: '#6D9872', 지원: '#8B71AC', 민지: '#C84B4B' };
+
+    // 도서관 서가(library.html)와 동일한 12권 데이터
+    const BOOKS = {
+      c1: { title: '나는 소망한다 내게 금지된 것을', author: '양귀자', member: '시현', genre: '소설/문학', call: 'SH-01', cover: '나는 소망한다 내게서..._양귀자.jpg', status: '읽는 중',
+        desc: '1990년대 한국 사회를 뒤흔들었던 화제작. 스스로 부여한 규범과 사회적 금기 속에서 주체적인 자아를 찾아 나서는 한 여성의 치열하고 도발적인 여정을 그린 장편소설.',
+        comment: '금기 너머의 목소리를 함께 고민해보고 싶어 추천합니다.' },
+      c2: { title: '프로젝트 헤일메리', author: '앤디 위어', member: '태이', genre: 'SF/판타지', call: 'TE-01', cover: '프로젝트 헤일메리_엔디 위어.jpg', status: '읽는 중',
+        desc: '인류의 운명을 짊어진 채 홀로 우주선에서 깨어난 한 과학교사가, 예상치 못한 존재와 협력하며 답을 찾아가는 유쾌하고 뭉클한 SF 모험담.',
+        comment: '고독한 우주에서도 유머를 잃지 않는 주인공이 좋아서 추천해요.' },
+      c3: { title: '자본주의', author: 'EBS', member: '희수', genre: '인문/교양', call: 'HS-01', cover: '자본주의_EBS.jpg', status: '읽는 중',
+        desc: 'EBS 다큐멘터리를 책으로 엮어, 소비와 부채로 움직이는 자본주의 경제의 원리를 쉽고 친절하게 풀어낸 교양서.',
+        comment: '우리가 당연하게 여기던 경제 구조를 다시 생각해보게 만드는 책이에요.' },
+      c4: { title: '아가미', author: '구병모', member: '지원', genre: '소설/문학', call: 'JW-01', cover: '아가미_구병모.png', status: '읽는 중',
+        desc: '물속에서 숨 쉴 수 있는 몸을 갖고 태어난 소년이 인간 사회의 경계에서 살아가는 이야기를 서늘하고 섬세한 문장으로 그린 소설.',
+        comment: '서늘하지만 아름다운 문장이 오래 남는 소설이라 추천합니다.' },
+      c5: { title: '달러구트 꿈 백화점', author: '이미예', member: '민지', genre: '소설/문학', call: 'MJ-01', cover: '달러구트 꿈 백화점 0_이미예.jpg', status: '읽는 중',
+        desc: '잠든 사이에만 열리는 신비한 백화점에서 손님들에게 꼭 맞는 꿈을 파는 이들의 따뜻하고 몽환적인 이야기.',
+        comment: '잠들기 전 읽으면 마음이 몽글몽글해지는 이야기라 추천해요.' },
+      d1: { title: '지뢰진 글리코', author: '아오사키 유고', member: '민지', genre: '소설/문학', call: 'MJ-02', cover: '고지뢰글리코__아오사키유고.jpg', status: '완독',
+        desc: '글리코 게임을 건 의뭉스러운 내기에서 출발해 도쿄 곳곳을 무대로 펼쳐지는 유쾌하고 지적인 미스터리.',
+        comment: '머리를 굴리게 만드는 유쾌한 미스터리라 다들 좋아하실 거예요.' },
+      d2: { title: '궤도의 밖에서 나의 옴에게', author: '전삼혜', member: '시현', genre: 'SF/판타지', call: 'SH-02', cover: '궤도의 밖에서..._전삼혜.jpeg', status: '완독',
+        desc: '낯선 룸메이트와 함께 지내며 서로 다른 궤도를 그리던 두 사람이 우정을 발견해가는 청소년 SF.',
+        comment: '낯선 사이가 친구가 되어가는 과정이 따뜻해서 추천했어요.' },
+      d3: { title: '다정한 사람이 되는 법', author: '이해인', member: '태이', genre: '에세이', call: 'TE-02', cover: '다정한 사람이..._이해인.jpg', status: '완독',
+        desc: '다정함이야말로 가장 단단한 삶의 태도임을 이야기하는 잔잔하고 위로가 되는 에세이.',
+        comment: '지치는 날 펼치면 위로가 되는 문장들이 가득해요.' },
+      d4: { title: '바깥은 여름', author: '김애란', member: '지원', genre: '소설/문학', call: 'JW-02', cover: '바깥은 여름_김애란.jpeg', status: '완독',
+        desc: '안과 밖의 경계에서 서성이는 이들의 시선을 통해 상실과 그리움을 섬세하게 담아낸 단편집.',
+        comment: '계절의 틈새를 포착하는 문장이 인상 깊어서 골랐어요.' },
+      d5: { title: '일억 번째 여름', author: '청예', member: '희수', genre: '소설/문학', call: 'HS-02', cover: '일억 번째 여름_청예.jpg', status: '완독',
+        desc: '같은 계절을 몇 번이고 다시 살아가는 인물들을 통해 사랑과 인연의 의미를 되짚는 소설.',
+        comment: '같은 여름을 반복하며 성장하는 이야기가 뭉클해요.' },
+      d6: { title: '지구 끝의 온실', author: '김초엽', member: '시현', genre: 'SF/판타지', call: 'SH-03', cover: '지구 끝의 온실_김초엽.jpg', status: '완독',
+        desc: '멸망 이후의 세계에서 다시 피어난 생명과 기억을 좇는 서정적인 SF 장편.',
+        comment: '폐허 속에서도 다시 피는 생명력이 위로가 되는 책이에요.' },
+      d7: { title: '여름', author: '이디스 워튼', member: '태이', genre: '소설/문학', call: 'TE-03', cover: '여름_이디스워튼.jpg', status: '완독',
+        desc: '한 시골 마을 소녀가 짧고 강렬한 한 계절의 사랑을 통해 자신을 발견해가는 고전 소설.',
+        comment: '짧지만 강렬한 한 계절의 이야기, 고전의 힘을 느낄 수 있어요.' }
+    };
+
+    // 세션 동안만 유지되는 리뷰/메모 (백엔드 연동 전까지는 새로고침하면 초기화됩니다)
+    const reviews = [];
+    const memos = [];
+
+    function getBookId() {
+      return new URLSearchParams(window.location.search).get('id');
+    }
+
+    function renderBook() {
+      const id = getBookId();
+      const book = BOOKS[id];
+
+      if (!book) return; // id가 없거나 잘못된 경우 기본 안내 문구를 그대로 둠
+
+      document.getElementById('detailCover').src = `../images/BOOK/${book.cover}`;
+      document.getElementById('detailStatus').textContent = book.status;
+      document.getElementById('detailGenre').textContent = book.genre;
+      document.getElementById('detailCall').textContent = book.call;
+      document.getElementById('detailTitle').textContent = book.title;
+      document.getElementById('detailAuthor').textContent = book.author;
+      document.getElementById('detailDesc').textContent = book.desc;
+    }
+
+    function switchDetailTab(tabName, btn) {
+      document.querySelectorAll('.detail-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`tab-${tabName}`).classList.add('active');
+    }
+
+    function renderReviews() {
+      const list = document.getElementById('reviewList');
+      list.innerHTML = reviews.map(r => `
+        <article class="review-item">
+          <div class="reviewer-header">
+            <span class="reviewer-seal" style="background-color: ${MEMBER_COLORS[r.author] || '#705E46'};"></span>
+            <span class="reviewer-name">${r.author}</span>
+            <span class="reviewer-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</span>
+            <span class="review-date">${r.date}</span>
+          </div>
+          <p class="review-text">${r.text}</p>
+        </article>
+      `).join('');
+
+      if (reviews.length === 0) {
+        document.getElementById('scoreNum').textContent = '–';
+        document.getElementById('scoreStars').textContent = '';
+        document.getElementById('scoreCaption').textContent = '아직 남겨진 평점이 없어요. 가장 먼저 남겨보세요!';
+        document.getElementById('scoreNumCompact').textContent = '–';
+        document.getElementById('scoreStarsCompact').textContent = '';
+        document.getElementById('scoreCaptionCompact').textContent = '아직 남겨진 평점이 없어요';
+        return;
+      }
+
+      const avg = reviews.reduce((sum, r) => sum + r.stars, 0) / reviews.length;
+      const rounded = Math.round(avg * 10) / 10;
+      const fullStars = Math.round(avg);
+      const starsText = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+      document.getElementById('scoreNum').textContent = rounded.toFixed(1);
+      document.getElementById('scoreStars').textContent = starsText;
+      document.getElementById('scoreCaption').textContent = `${reviews.length}명이 남긴 평균 별점입니다.`;
+      document.getElementById('scoreNumCompact').textContent = rounded.toFixed(1);
+      document.getElementById('scoreStarsCompact').textContent = starsText;
+      document.getElementById('scoreCaptionCompact').textContent = `${reviews.length}명이 남긴 평점`;
+    }
+
+    function submitReview() {
+      const author = document.getElementById('reviewAuthor').value;
+      const stars = Number(document.getElementById('reviewStars').value);
+      const text = document.getElementById('reviewText').value.trim();
+
+      if (!author || !stars || !text) {
+        alert('작성자, 별점, 감상평을 모두 입력해주세요.');
+        return;
+      }
+
+      reviews.unshift({ author, stars, text, date: new Date().toISOString().slice(0, 10).replace(/-/g, '.') });
+      renderReviews();
+
+      document.getElementById('reviewAuthor').value = '';
+      document.getElementById('reviewStars').value = '';
+      document.getElementById('reviewText').value = '';
+    }
+
+    function renderMemos() {
+      const list = document.getElementById('memoList');
+      list.innerHTML = memos.map(m => `
+        <div class="memo-item">
+          <span class="memo-tag memo-tag-note">실시간 단상</span>
+          <p class="memo-q">"${m.text}"</p>
+          <span class="memo-by">— 메모: ${m.author}${m.page ? ` (${m.page} 읽는 중)` : ''}</span>
+        </div>
+      `).join('');
+    }
+
+    function submitMemo() {
+      const author = document.getElementById('memoAuthor').value;
+      const page = document.getElementById('memoPage').value.trim();
+      const text = document.getElementById('memoText').value.trim();
+
+      if (!author || !text) {
+        alert('작성자와 메모 내용을 입력해주세요.');
+        return;
+      }
+
+      memos.unshift({ author, page, text });
+      renderMemos();
+
+      document.getElementById('memoAuthor').value = '';
+      document.getElementById('memoPage').value = '';
+      document.getElementById('memoText').value = '';
+    }
+
+    renderBook();
+    renderReviews();
+    renderMemos();
+  </script>
+</body>
+</html>
